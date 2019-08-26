@@ -15,7 +15,7 @@ class ListTodosComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.width = props.width || "350px";
+        this.width = props.width || "600px";
         this.style = props.style || {};
         this.style.width = this.width; // add this
     }
@@ -260,37 +260,6 @@ class ListTodosComponent extends Component {
                         {trElems}
                     </tbody>
                 </table>
-                {/* {this.state.message && <div class="alert alert-success">{this.state.message}</div>}
-                <div className="container">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Description</th>
-                                <th>Target Date</th>
-                                <th>IsCompleted?</th>
-                                <th>Update</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                this.state.todos.map(
-                                    todo =>
-                                        <tr key={todo.id}>
-                                            <td>{todo.description}</td>
-                                            <td>{moment(todo.targetDate).format('YYYY-MM-DD')}</td>
-                                            <td>{todo.done.toString()}</td>
-                                            <td><button className="btn btn-success" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
-                                            <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td>
-                                        </tr>
-                                )
-                            }
-                        </tbody>
-                    </table>
-                    <div className="row">
-                        <button className="btn btn-success" onClick={this.addTodoClicked}>Add</button>
-                    </div>
-                </div> */}
             </div>
         )
     }

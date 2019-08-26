@@ -49,9 +49,6 @@ tr {
     margin: 0;
 }
 
-.calendar-container {
-    border: 2px solid skyblue;
-}
 
 .calendar {
     background-color: white;
@@ -61,7 +58,6 @@ tr {
 }
 
 .calendar-header {
-    border-bottom: 1px dashed skyblue;
     font-size: 1.6em;
 }
 
@@ -113,7 +109,6 @@ tr {
     position: absolute;
     padding: 5px;
     background: white;
-    border: 2px solid skyblue;
 }
 
 .month-popup div {

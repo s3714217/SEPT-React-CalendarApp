@@ -8,6 +8,9 @@ import './App.css';
 import './bootstrap.css';
 
 class App extends Component {
+  onDayClick = (e, day) => {
+    alert(day);
+  }
   render() {
     return (
       <div className="App">
