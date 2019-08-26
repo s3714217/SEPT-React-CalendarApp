@@ -10,6 +10,11 @@ import LogoutComponent from './LogoutComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
 import TodoComponent from './TodoComponent.jsx'
 
+const style = {
+    position: 'relative',
+    margin: '50px auto'
+}
+
 class TodoApp extends Component {
     render() {
         return (
