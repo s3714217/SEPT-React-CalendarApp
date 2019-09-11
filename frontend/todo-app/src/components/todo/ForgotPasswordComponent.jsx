@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
 
-class RegistrationComponent extends Component {
+class ForgotPasswordComponent extends Component {
 
     constructor(props) {
         super(props)
 
         this.state = {
-            username: '',
-            password: '',
-            confirmed_password: '',
-            email_address: '',
-            first_security_question: '',
+            first_security_question : '',
             second_security_question: '',
             third_security_question: '',
             hasLoginFailed: false,
@@ -20,7 +16,7 @@ class RegistrationComponent extends Component {
         this.handleUsernameChange = this.handleUsernameChange.bind(this)
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.handleChange = this.handleChange.bind(this)
-        this.registerClicked = this.registerClicked.bind(this)
+        this.recoverPasswordClicked = this.recoverPasswordClicked.bind(this)
     }
 
     handleChange(event) {
@@ -48,56 +44,46 @@ class RegistrationComponent extends Component {
         this.setState({password:event.target.value})
     }
 
-    registerClicked() {
+    recoverPasswordClicked() {
 
-        if (this.state.username.length != 0 &&
-            this.state.password.length != 0 &&
-            this.state.password === this.state.confirmed_password &&
-            this.state.email_address.length != 0 &&
-            this.state.first_security_question.length != 0 &&
+        if (this.state.first_security_question.length != 0 &&
             this.state.second_security_question.length != 0 &&
-            this.state.third_security_question.length != 0) 
-        {
-            this.props.history.push(`/login/`)
+            this.state.third_security_question.length != 0) {
+            // for now, let's try and redirect only.
+            this.props.history.push(`/recoverpaasword/${this.state.username}`)
+            this.setState({showSuccessMessage:true})
+            this.setState({hasLoginFailed:false})
         }
         else {
             this.setState({showSuccessMessage:false})
             this.setState({hasLoginFailed:true})
         }
+
     }
+
 
     render() {
         return (
             <div>
-                <h1>Registration</h1>
+                <h1>Recover Password</h1>
                 <div className="container">
                     {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
-                    {this.state.hasLoginFailed && <div className="alert alert-warning">Please make sure not to leave any field empty AND both your passwords have to match!</div>}
+                    {this.state.hasLoginFailed && <div className="alert alert-warning">Please make sure not to leave any field empty</div>}
                     {this.state.showSuccessMessage && <div>Login Sucessful</div>}
                     {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
-                    User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+                    <h5>Please Answer these Security Questions for the Purpose of Recovring your Account</h5>
                     <br></br>
-                    Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-                    <br></br>
-                    Confirm Password: <input type="password" name="confirmed_password" value={this.state.confirmed_password} onChange={this.handleChange} />
-                    <br></br>
-                    Email Address: <input type="text" name="email_address" value={this.state.email_address} onChange={this.handleChange} />
-                    <br></br>
-                    <br></br>
-                    <h5>Security Questions for the Purpose of Recovring your Account</h5>
-                    <br></br>
-                    What is your date of birth? <input type="text" name="first_security_question" value={this.state.first_security_question}  onChange={this.handleChange} />
+                    What is your date of birth? <input type="text" name="first_security_question" value={this.state.first_security_question} onChange={this.handleChange} />
                     <br></br>
                     What is your father name? <input type="text" name="second_security_question" value={this.state.second_security_question} onChange={this.handleChange} />
                     <br></br>
                     What is your mother's middle name? <input type="text" name="third_security_question" value={this.state.third_security_question} onChange={this.handleChange} />
-                    <br></br>
-                    <button className="btn btn-success" onClick={this.registerClicked}>Register</button>
-                    
+                    <br></br> 
+                    <button className="btn btn-success" onClick={this.recoverPasswordClicked}>Recover Password</button>
                 </div>
             </div>
         )
     }
 }
 
-export default RegistrationComponent
+export default ForgotPasswordComponent
