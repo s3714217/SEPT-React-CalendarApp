@@ -16,7 +16,6 @@ class LoginComponent extends Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.loginClicked = this.loginClicked.bind(this)
-        this.registrationClicked = this.registrationClicked.bind(this)
     }
 
     handleChange(event) {
@@ -77,27 +76,26 @@ class LoginComponent extends Component {
 
     }
 
-    // if user clicks on registration button, then switch to registration page
-    registrationClicked() {
-        AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password)
-        this.props.history.push(`/register/`)
-        this.setState({showSuccessMessage:false})
-        this.setState({hasLoginFailed:true})
-    }
-
     render() {
         return (
             <div>
-                <h1>Login</h1>
+                <h1>Registration</h1>
                 <div className="container">
                     {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
-                    {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials or something is wrong</div>}
-                    {this.state.showSuccessMessage && <div>Login Sucessful</div>}
+                    {/* {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials or something is wrong</div>} */}
+                    {/* {this.state.showSuccessMessage && <div>Login Sucessful</div>} */}
                     {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
-                    User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
-                    Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+                    User Name: <input type="text" name="username" onChange={this.handleChange} />
+                    <br></br>
+                    Password: <input type="password" name="password" onChange={this.handleChange} />
+                    <br></br>
+                    Confirm Password: <input type="password" name="confirm_password" onChange={this.handleChange} />
+                    <br></br>
+                    Email Address: <input type="text" name="email_address" onChange={this.handleChange} />
+                    <br></br>
                     <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
-                    <button className="btn btn-register" onClick={this.registrationClicked}>Registration</button>
+                    <br></br>
+                    <br></br>
                 </div>
             </div>
         )
