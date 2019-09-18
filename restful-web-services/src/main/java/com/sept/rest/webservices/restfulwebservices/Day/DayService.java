@@ -22,9 +22,9 @@ public class DayService {
         return (List<Day>) repository.findAll();
     }
 
-    public Optional<Day> getDayByNumAndMonth(int num, String month) {
+    public Day getDayByNumAndMonth(int num, String month) {
         Optional<Day> optionalDay = repository.findDay(num, month);
-        return optionalDay;
+        return optionalDay.orElseThrow();
 
     }
 
