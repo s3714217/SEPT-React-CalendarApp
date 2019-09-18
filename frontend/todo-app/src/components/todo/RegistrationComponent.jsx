@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
+import * as EmailValidator from 'email-validator';
+ 
 
 class RegistrationComponent extends Component {
 
@@ -48,6 +50,7 @@ class RegistrationComponent extends Component {
         this.setState({password:event.target.value})
     }
 
+
     registerClicked() {
 
         if (this.state.username.length != 0 &&
@@ -56,10 +59,12 @@ class RegistrationComponent extends Component {
             this.state.email_address.length != 0 &&
             this.state.first_security_question.length != 0 &&
             this.state.second_security_question.length != 0 &&
-            this.state.third_security_question.length != 0) 
+            this.state.third_security_question.length != 0 &&
+            EmailValidator.validate(this.state.email_address))
         {
             this.props.history.push(`/login/`)
         }
+        
         else {
             this.setState({showSuccessMessage:false})
             this.setState({hasLoginFailed:true})
@@ -72,7 +77,7 @@ class RegistrationComponent extends Component {
                 <h1>Registration</h1>
                 <div className="container">
                     {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
-                    {this.state.hasLoginFailed && <div className="alert alert-warning">Please make sure not to leave any field empty AND both your passwords have to match!</div>}
+                    {this.state.hasLoginFailed && <div className="alert alert-warning">Please make sure not to leave any field empty AND both your passwords have to match AND email is valid!</div>}
                     {this.state.showSuccessMessage && <div>Login Sucessful</div>}
                     {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
                     User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
@@ -86,7 +91,7 @@ class RegistrationComponent extends Component {
                     <br></br>
                     <h5>Security Questions for the Purpose of Recovring your Account</h5>
                     <br></br>
-                    What is your date of birth? <input type="text" name="first_security_question" value={this.state.first_security_question}  onChange={this.handleChange} />
+                    What is your favorite color? <input type="text" name="first_security_question" value={this.state.first_security_question}  onChange={this.handleChange} />
                     <br></br>
                     What is your father name? <input type="text" name="second_security_question" value={this.state.second_security_question} onChange={this.handleChange} />
                     <br></br>

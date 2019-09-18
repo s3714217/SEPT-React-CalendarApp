@@ -73,7 +73,7 @@ class ForgotPasswordComponent extends Component {
                     {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
                     <h5>Please Answer these Security Questions for the Purpose of Recovring your Account</h5>
                     <br></br>
-                    What is your date of birth? <input type="text" name="first_security_question" value={this.state.first_security_question} onChange={this.handleChange} />
+                    What is your favorite color? <input type="text" name="first_security_question" value={this.state.first_security_question} onChange={this.handleChange} />
                     <br></br>
                     What is your father name? <input type="text" name="second_security_question" value={this.state.second_security_question} onChange={this.handleChange} />
                     <br></br>
