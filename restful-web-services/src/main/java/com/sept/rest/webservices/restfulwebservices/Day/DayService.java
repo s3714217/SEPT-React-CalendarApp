@@ -1,3 +1,5 @@
+package com.sept.rest.webservices.restfulwebservices.Day;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -12,17 +14,18 @@ public class DayService {
         repository.save(toEntity(day));
     }
 
-    public void delete(long id) {
-        repository.deleteById(id);
+    public void delete(int num, String month) {
+        repository.deleteById(num, month);
     }
 
-    public List<Day> getDogs() {
+    public List<Day> getDays() {
         return (List<Day>) repository.findAll();
     }
 
-    public Day getDayByNum(int num, String month) {
+    public Optional<Day> getDayByNumAndMonth(int num, String month) {
         Optional<Day> optionalDay = repository.findDay(num, month);
-        return optionalDay.orElseThrow(() -> new DayNotFoundException("Couldn't find a Day with id: " + id));
+        return optionalDay;
+
     }
 
     private Day toEntity(Day day) {

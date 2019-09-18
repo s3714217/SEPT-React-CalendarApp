@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface DayJpaRepository extends JpaRepository<Day, Long> {
 
     Optional<Day> findDay(int num, String month);
+
+    void deleteById(int num, String month);
 }
