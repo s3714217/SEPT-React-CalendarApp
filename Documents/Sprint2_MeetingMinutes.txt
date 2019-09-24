@@ -143,3 +143,132 @@ Thien		:
 Tharvind	: 
 
 -----------------------------------------------------------------------------
+Sprint Number:			2
+Meeting Number:			4
+Meeting Time:			1:30PM - 2:30PM
+Meeting Date:			16/09/2019
+
+General Notes:
+- 
+-
+- 
+TODO:
+-
+-
+-
+
+What did we do since the last meeting?
+Duncan		:  
+Mohammed	: 
+Saad		:  
+Thien		: 
+Tharvind	:   	
+
+What will be done by the next meeting?
+Duncan		: 
+Mohammed	: 
+Saad		: 
+Thien		: 
+Tharvind	: 
+
+What roadblocks did we run into since the last meeting?
+Duncan		: 
+Mohammed	: 
+Saad		: 
+Thien		: 
+Tharvind	: 
+
+Action items for the time until the next scrum meeting?
+Duncan		: 
+Mohammed	: 
+Saad		: 
+Thien		: 
+Tharvind	: 
+
+-----------------------------------------------------------------------------
+Sprint Number:			2
+Meeting Number:			5
+Meeting Time:			1:30PM - 2:30PM
+Meeting Date:			16/09/2019
+
+General Notes:
+- 
+-
+- 
+TODO:
+-
+-
+-
+
+What did we do since the last meeting?
+Duncan		:  
+Mohammed	: 
+Saad		:  
+Thien		: 
+Tharvind	:   	
+
+What will be done by the next meeting?
+Duncan		: 
+Mohammed	: 
+Saad		: 
+Thien		: 
+Tharvind	: 
+
+What roadblocks did we run into since the last meeting?
+Duncan		: 
+Mohammed	: 
+Saad		: 
+Thien		: 
+Tharvind	: 
+
+Action items for the time until the next scrum meeting?
+Duncan		: 
+Mohammed	: 
+Saad		: 
+Thien		: 
+Tharvind	: 
+
+-----------------------------------------------------------------------------
+Sprint Number:			2
+Meeting Number:			6
+Meeting Time:			11:30AM - 1:30PM
+Meeting Date:			18/09/2019
+
+General Notes:
+- 
+-
+- 
+TODO:
+-
+-
+-
+
+What did we do since the last meeting?
+Duncan		:  
+Mohammed	: 
+Saad		:  
+Thien		: 
+Tharvind	:   	
+
+What will be done by the next meeting?
+Duncan		: 
+Mohammed	: 
+Saad		: 
+Thien		: 
+Tharvind	: 
+
+What roadblocks did we run into since the last meeting?
+Duncan		: 
+Mohammed	: Undetermined type of security question answer field. can result in typing issues
+Saad		: 
+Thien		: Date selection for events becomes troublesome unless sperated into fields based on day/month/year
+Tharvind	: Where does the encryption and decryption go
+
+Action items for the time until the next scrum meeting?
+Duncan		: 
+Mohammed	: 
+Saad		: 
+Thien		: 
+Tharvind	: 
+
+-----------------------------------------------------------------------------
