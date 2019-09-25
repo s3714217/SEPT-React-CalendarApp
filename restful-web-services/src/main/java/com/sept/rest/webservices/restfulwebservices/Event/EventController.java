@@ -1,4 +1,4 @@
-package com.sept.rest.webservices.restfulwebservices.Day;
+package com.sept.rest.webservices.restfulwebservices.Event;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,28 +11,28 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/day")
-public class DayController {
+@RequestMapping("/day/events")
+public class EventController {
     @Autowired
-    DayService service;
+    EventService service;
 
     @GetMapping
-    public List<Day> getDays() {
-        return service.getDays();
+    public List<Event> getEvents() {
+        return service.getEvents();
     }
 
     @PostMapping
-    public void postDays(@RequestBody Day day) {
-        service.add(day);
+    public void postEvents(@RequestBody Event event) {
+        service.add(event);
     }
 
-    @GetMapping("/{month}/{number}")
+    @GetMapping("/{id}")
     public Day getByNumAndMonth(@PathVariable(required = true) String month, @PathVariable(required = true) int num) {
-        return service.getDayByNumAndMonth(num, month);
+        return service.getEventById(id);
     }
 
-    @DeleteMapping("/{month}/{number}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable(required = true) String month, @PathVariable(required = true) int num) {
-        service.delete(num, month);
+        service.delete(id);
     }
 }

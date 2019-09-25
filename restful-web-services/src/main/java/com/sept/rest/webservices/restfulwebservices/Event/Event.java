@@ -43,8 +43,16 @@ public class Event {
         return this.eventId;
     }
 
+    public void setEventID(int id) {
+        this.eventId = id;
+    }
+
     public String getEventTitle() {
         return this.eventTitle;
+    }
+
+    public void setEventTitle(String title) {
+        this.eventTitle = title;
     }
 
     public String getDescription() {
@@ -69,6 +77,14 @@ public class Event {
 
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
+    }
+
+    public Day getEventDay() {
+        return this.day;
+    }
+
+    public void setEventDay(Day day) {
+        this.day = day;
     }
 
 }
