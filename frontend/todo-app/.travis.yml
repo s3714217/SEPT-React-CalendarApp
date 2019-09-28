@@ -13,4 +13,5 @@ script:
   # safelist
 branches:
   only:
+  - master
   - frontend_login_authentication_api
