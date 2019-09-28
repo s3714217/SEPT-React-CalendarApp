@@ -1,12 +1,19 @@
-package com.sept.rest.webservices.restfulwebservices.todo;
+package com.sept.rest.webservices.restfulwebservices.user;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-	List<User> findByUserID(long userID);
+	
+	Optional<User> findByUserID(long userID);
+	
+
 }
+
+
+
+
 

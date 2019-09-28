@@ -1,9 +1,6 @@
-package com.sept.rest.webservices.restfulwebservices.User;
-
-import java.util.*;
+package com.sept.rest.webservices.restfulwebservices.user;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,11 +11,16 @@ public class User {
     private int userID;
     private String userName;
     private String userPassword;
+    private String userFirstName;
+    private String userLastName;
+    private String email;
 
     public User(int userID, String userName, String userPassword) {
         this.userID = userID;
         this.userName = userName;
         this.userPassword = userPassword;
+        
+        
     }
 
     public int getUserID() {
@@ -32,8 +34,34 @@ public class User {
     public String getUserPassword() {
         return this.userPassword;
     }
+    
 
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+	public String getFirstName() {
+		return userFirstName;
+	}
+
+	public void setFirstName(String userFirstName) {
+		this.userFirstName = userFirstName;
+	}
+
+	public String getLastName() {
+		return userLastName;
+	}
+
+	public void setLastName(String userLastName) {
+		this.userLastName = userLastName;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getEmail() {
+		return email;
+	}
 }
