@@ -4,18 +4,8 @@ node_js:
 cache:
   directories:
     - node_modules
-
-before_install:
-  - gem install rake
-
-  
 script:
   - npm test
   - npm run build
-# deploy:
-#   provider: surge
-#   skip_cleanup: true
-#   domain: <my_name_here>.surge.sh
-#   project: ./build/
-# on:
-#   branch: master
+on:
+  branch: frontend_login_authentication_api
