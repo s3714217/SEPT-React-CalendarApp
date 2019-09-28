@@ -1,12 +1,11 @@
 language: node_js
+
 node_js:
   - "stable"
 
-cache:
-  directories:
-  - node_modules
 
 script:
+  - install npm
   - npm start
   - npm test
   - npm run build
@@ -15,5 +14,4 @@ script:
   # safelist
 branches:
   only:
-  - master
   - frontend_login_authentication_api
