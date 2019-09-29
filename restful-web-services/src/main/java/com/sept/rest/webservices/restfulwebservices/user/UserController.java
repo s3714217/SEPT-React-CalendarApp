@@ -46,25 +46,30 @@ public class UserController {
 	  
 	  @GetMapping("/users/{ID}")
 	  public ResponseEntity<User> getUsersByID(@PathVariable(value = "id") Long userID)
-	      throws ResourceNotFoundException {
-	    User user =
-	        userRepository
-	            .findByUserID(userID)
-	            .orElseThrow(() -> new Exception("User not found on : " + userID));
-	    return ResponseEntity.ok().body(user);
+	      throws Exception {
+	    
+		  User user = userRepository.findByUserID(userID).orElseThrow(() -> new Exception("User not found on : " + userID));
+		  return  new ResponseEntity<User>(user, HttpStatus.OK);
 	  }
 
 	  @PostMapping("/users")
 	  public User createUser(@Valid @RequestBody User user) {
 		 
-		  user = new User(user.getUserID(), user.getUserName(),this.passwordEncoder().encode(user.getUserPassword()));
+		  if (userRepository.findByUserID(user.getUserID()).isPresent() == false)
+		  {
+			  user = new User(user.getUserID(), user.getUserName(),this.passwordEncoder().encode(user.getUserPassword()));
+			  return userRepository.save(user);
+		  }
+		  else
+		  {
+			  return null;
+		  }
 		  
-	    return userRepository.save(user);
 	  }
 
 	@PutMapping("/users/{ID}")
 	  public ResponseEntity<User> updateUser(@PathVariable(value = "ID") Long userID, @Valid @RequestBody User userDetails)
-	      throws ResourceNotFoundException {
+	      throws Exception {
 		
 	    User user = userRepository.findByUserID(userID).orElseThrow(() -> new Exception("User not found on : " + userID));
 	    userRepository.delete(user);
@@ -77,7 +82,7 @@ public class UserController {
 	  }
 
 	  @DeleteMapping("/user/{ID}")
-	  public Map<String, Boolean> deleteUser(@PathVariable(value = "ID") Long userID) throws ResourceNotFoundException {
+	  public Map<String, Boolean> deleteUser(@PathVariable(value = "ID") Long userID) throws Exception {
 	    User user =
 	        userRepository
 	            .findById(userID)
