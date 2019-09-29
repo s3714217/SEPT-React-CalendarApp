@@ -7,10 +7,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 public class User {
+	
     @Id
+    @GeneratedValue
     private int userID;
+    
+    @Column(nullable = false)
     private String userName;
+	
+    @Column(nullable = false)
     private String userPassword;
+	
     private String userFirstName;
     private String userLastName;
     private String email;
