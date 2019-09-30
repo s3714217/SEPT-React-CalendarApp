@@ -52,4 +52,16 @@ class MockAccountTests {
 	{
 		assertFalse(account.validPassword("bguivejkf"));
 	}
+	
+	@Test
+	public void capslockTest()
+	{
+		assertTrue(account.capslock());
+	}
+	
+//	@Test
+//	public void securityQuestionTest()
+//	{
+//		assertEquals("red", account.securityQ1);
+//	}
 }
