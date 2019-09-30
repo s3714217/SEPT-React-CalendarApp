@@ -1,17 +1,8 @@
 language: node_js
 node_js:
-  - "stable"
-cache:
-  directories:
-  - node_modules
-script:
+  - 6.9.0
+install:
+  - npm install
+script: 
   - npm start
   - npm test
-  - npm run build
-
-
-  # safelist
-branches:
-  only:
-  - master
-  - frontend_login_authentication_api
