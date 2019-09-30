@@ -77,18 +77,7 @@ class EventComponent extends Component {
             title: values.title,
             location: values.location,
         }
-        
-        const fs = require("fs");
-        
-        const jsonString = JSON.stringify(todo)
-        
-        fs.writeFile('./event.json', jsonString, err => {
-    if (err) {
-        console.log('Error writing file', err)
-    } else {
-        console.log('Successfully wrote file')
-    }
-})
+     
         
         if (this.state.id === -1) {
             TodoDataService.createTodo(username, todo)
