@@ -3,9 +3,8 @@ node_js:
   - "stable"
 cache:
   directories:
-    - node_modules
-before_install:
-  - gem install rake
+  - node_modules
 script:
-  - npm test
   - npm run build
+  on:
+    branch: maste
