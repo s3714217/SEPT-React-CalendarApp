@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import TodoDataService from '../../api/todo/TodoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
+import EventList from './EventListComponent'
+
+
 
 class ListTodosComponent extends Component {
     
@@ -260,7 +263,12 @@ class ListTodosComponent extends Component {
                         {trElems}
                     </tbody>
                 </table>
+                
+                 <EventList></EventList>
             </div>
+            
+
+            
         )
     }
 }

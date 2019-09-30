@@ -3,8 +3,9 @@ import moment from 'moment'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import TodoDataService from '../../api/todo/TodoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
+import fs from 'fs'
 
-class TodoComponent extends Component {
+class EventComponent extends Component {
     constructor(props) {
         super(props)
 
@@ -76,7 +77,8 @@ class TodoComponent extends Component {
             title: values.title,
             location: values.location,
         }
-
+     
+        
         if (this.state.id === -1) {
             TodoDataService.createTodo(username, todo)
                 .then(() => this.props.history.push('/todos'))
@@ -149,4 +151,4 @@ class TodoComponent extends Component {
     }
 }
 
-export default TodoComponent
+export default EventComponent

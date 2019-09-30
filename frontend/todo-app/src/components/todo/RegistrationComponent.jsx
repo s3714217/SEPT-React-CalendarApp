@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
-import * as EmailValidator from 'email-validator';
+import EmailValidator from 'email-validator';
  
 
 class RegistrationComponent extends Component {
@@ -59,8 +59,10 @@ class RegistrationComponent extends Component {
             this.state.email_address.length != 0 &&
             this.state.first_security_question.length != 0 &&
             this.state.second_security_question.length != 0 &&
-            this.state.third_security_question.length != 0 &&
-            EmailValidator.validate(this.state.email_address))
+            this.state.third_security_question.length != 0 && 
+            EmailValidator.validate(this.state.email_address)
+        )
+         
         {
             this.props.history.push(`/login/`)
         }
