@@ -8,6 +8,7 @@ import HeaderComponent from './HeaderComponent.jsx'
 import FooterComponent from './FooterComponent.jsx'
 import LogoutComponent from './LogoutComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
+import EventComponent from './EventComponent.jsx'
 import TodoComponent from './TodoComponent.jsx'
 import RegistrationComponent from './RegistrationComponent.jsx'
 import ForgotPasswordComponent from './ForgotPasswordComponent.jsx'
@@ -32,7 +33,7 @@ class TodoApp extends Component {
                             <Route path="/forgotpassword" component={ForgotPasswordComponent}/>
                             <Route path="/recoverpaasword" component={RecoverPasswordComponent}/>
                             <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
-                            <AuthenticatedRoute path="/todos/:id" component={TodoComponent}/>
+                            <AuthenticatedRoute path="/todos/event" component={EventComponent}/>
                             <AuthenticatedRoute path="/todos" component={ListTodosComponent}/>
                             <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
                             
