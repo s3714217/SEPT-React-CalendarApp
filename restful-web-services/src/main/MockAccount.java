@@ -1,5 +1,9 @@
 package MockClasses;
 
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.util.function.BooleanSupplier;
+
 public class MockAccount 
 {
 	public String username;
@@ -15,12 +19,12 @@ public class MockAccount
 	{
 		boolean result = true;
 		
-		String[] specialChars = {"!", "@", "#", "$", "%", "^", "7", "*", "(", ")"};
+		String[] specialChars = {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")"};
 		for (int i = 0; i < specialChars.length; ++i)
 		{
 			if(password.contains(specialChars[i]))
 			{
-				result  = false;
+				result = false;
 			}
 		}
 		return result;
@@ -39,6 +43,12 @@ public class MockAccount
 			}
 		}
 		return result;
+	}
+
+	public boolean capslock() 
+	{
+		boolean isOn = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+		return isOn;
 	}
 	
 }

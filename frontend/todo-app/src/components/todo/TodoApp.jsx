@@ -9,6 +9,9 @@ import FooterComponent from './FooterComponent.jsx'
 import LogoutComponent from './LogoutComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
 import TodoComponent from './TodoComponent.jsx'
+import RegistrationComponent from './RegistrationComponent.jsx'
+import ForgotPasswordComponent from './ForgotPasswordComponent.jsx'
+import RecoverPasswordComponent from './RecoverPasswordComponent.jsx'
 
 const style = {
     position: 'relative',
@@ -25,6 +28,9 @@ class TodoApp extends Component {
                         <Switch>
                             <Route path="/" exact component={LoginComponent}/>
                             <Route path="/login" component={LoginComponent}/>
+                            <Route path="/register" component={RegistrationComponent}/>
+                            <Route path="/forgotpassword" component={ForgotPasswordComponent}/>
+                            <Route path="/recoverpaasword" component={RecoverPasswordComponent}/>
                             <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
                             <AuthenticatedRoute path="/todos/:id" component={TodoComponent}/>
                             <AuthenticatedRoute path="/todos" component={ListTodosComponent}/>

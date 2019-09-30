@@ -16,6 +16,8 @@ class LoginComponent extends Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.loginClicked = this.loginClicked.bind(this)
+        this.registrationClicked = this.registrationClicked.bind(this)
+        this.forgotPasswordClicked = this.forgotPasswordClicked.bind(this)
     }
 
     handleChange(event) {
@@ -44,6 +46,7 @@ class LoginComponent extends Component {
     }
 
     loginClicked() {
+    
         if(this.state.username==='Mohammed' && this.state.password==='123456'){
             AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password)
             this.props.history.push(`/welcome/${this.state.username}`)
@@ -76,6 +79,17 @@ class LoginComponent extends Component {
 
     }
 
+    // if user clicks on registration button, then switch to registration page
+    registrationClicked() {
+        this.props.history.push(`/register/`)
+    }
+
+    // if user clicks on forgotPassword button, then switch to forgotPassword page
+    forgotPasswordClicked() {
+        this.props.history.push(`/forgotpassword/`)
+    }
+
+
     render() {
         return (
             <div>
@@ -84,10 +98,15 @@ class LoginComponent extends Component {
                     {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
                     {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials or something is wrong</div>}
                     {this.state.showSuccessMessage && <div>Login Sucessful</div>}
-                    {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
+                    {/* <ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/> */}
                     User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
                     Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-                    <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
+                    <button className="btn btn-success" onClick={this.loginClicked} >Login</button>
+                    <br></br>
+                    <button className="btn btn-register" onClick={this.registrationClicked}>Registration</button>
+                    <br></br>
+                    <button className="btn btn-register" onClick={this.forgotPasswordClicked}>Forgot Password</button>
+
                 </div>
             </div>
         )
