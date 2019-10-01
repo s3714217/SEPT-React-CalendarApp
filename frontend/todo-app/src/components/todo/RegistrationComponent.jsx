@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
-import EmailValidator from 'email-validator';
+import TodoDataService from '../../api/todo/TodoDataService.js'
+
  
 
 class RegistrationComponent extends Component {
 
+    
     constructor(props) {
         super(props)
 
@@ -59,12 +61,13 @@ class RegistrationComponent extends Component {
             this.state.email_address.length != 0 &&
             this.state.first_security_question.length != 0 &&
             this.state.second_security_question.length != 0 &&
-            this.state.third_security_question.length != 0 && 
-            EmailValidator.validate(this.state.email_address)
+            this.state.third_security_question.length != 0
+            
         )
          
         {
-            this.props.history.push(`/login/`)
+            TodoDataService.createTodo(this.state)
+            .then(() => this.props.history.push('/login'))
         }
         
         else {
