@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
@@ -27,12 +28,12 @@ public class EventController {
     }
 
     @GetMapping("/{id}")
-    public Day getByNumAndMonth(@PathVariable(required = true) String month, @PathVariable(required = true) int num) {
+    public Event getByNumAndMonth(@PathVariable(required = true) int id) {
         return service.getEventById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable(required = true) String month, @PathVariable(required = true) int num) {
+    public void delete( @PathVariable(required = true) int id) {
         service.delete(id);
     }
 }

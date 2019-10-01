@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 
+import com.sept.rest.webservices.restfulwebservices.Day.Day;
 import com.sept.rest.webservices.restfulwebservices.Event.Event;
 
 @Component
@@ -38,7 +39,7 @@ public class EventService {
 
     private Event toEntity(Event event) {
         Event entity = event;
-        entity.setEventId(event.getEventId());
+        entity.setEventID(event.getEventID());
         entity.setEventTitle(event.getEventTitle());
         entity.setDescription(event.getDescription());
         entity.setDateTime(event.getDateTime());
