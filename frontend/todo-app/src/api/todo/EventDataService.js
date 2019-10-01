@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { API_URL, JPA_API_URL } from '../../Constants'
 
-class TodoDataService {
+class EventDataService {
 
-    retrieveUser(name) {
+    retrieveAllEvent(username) {
         //console.log('executed service')
-        return axios.get(`https://localhost:4200/welcome/${name}`);
+        return axios.get(`https://localhost:4200/calendar/`, username);
     }
 
   //  deleteTodo(id) {
@@ -18,11 +18,11 @@ class TodoDataService {
   //      return axios.put(`${JPA_API_URL}/users/${name}/todos/${id}`, todo);
   //  }
 
-    createUser(user) {
+    createEvent(event, username) {
        
-        return axios.post(`https://localhost:4200/register`, user);
+        return axios.post(`https://localhost:4200/calendar/event`, event,username);
     }
 
 }
 
-export default new TodoDataService()
+export default new EventDataService()
