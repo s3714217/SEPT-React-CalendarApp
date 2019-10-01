@@ -5,6 +5,6 @@ cache:
   directories:
   - node_modules
 script:
-  - npm run build
-  on:
-    branch: maste
+  -npm run build
+on:
+    branch: master
