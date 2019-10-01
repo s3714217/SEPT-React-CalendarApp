@@ -3,7 +3,6 @@ package com.sept.rest.webservices.restfulwebservices.user;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,11 +11,6 @@ import javax.persistence.Table;
 public class User {
 	
     @Id
-
-    @GeneratedValue
-    private int userID;
-    
-    
     @Column(nullable = false)
     private String userName;
 	
@@ -28,19 +22,13 @@ public class User {
     private String fatherMiddle;
     private String motherMiddle;
 	
-    private String userFirstName;
-    private String userLastName;
-    private String email;
 
-    public User(int userID, String userName, String userPassword) {
-        this.userID = userID;
+    public User(String userName, String userPassword) {
+    	
         this.userName = userName;
         this.userPassword = userPassword;
+      
 
-    }
-
-    public int getUserID() {
-        return this.userID;
     }
 
     public String getUserName() {
@@ -69,10 +57,6 @@ public class User {
     public String getMotherMiddle() {
         return this.motherMiddle;
     }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
     
     public void setUserName(String userName) {
         this.userName = userName;
@@ -98,29 +82,5 @@ public class User {
         this.motherMiddle = motherMiddle;
     }
 
-	public String getFirstName() {
-		return userFirstName;
-	}
-
-	public void setFirstName(String userFirstName) {
-		this.userFirstName = userFirstName;
-	}
-
-	public String getLastName() {
-		return userLastName;
-	}
-
-	public void setLastName(String userLastName) {
-		this.userLastName = userLastName;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getEmail() {
-		return email;
-	}
 }
 
