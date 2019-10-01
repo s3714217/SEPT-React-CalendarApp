@@ -8,14 +8,14 @@ class TodoDataService {
         return axios.get(`${JPA_API_URL}/users/${name}/todos`);
     }
 
-    retrieveTodo(name, id) {
+    retrieveTodo(name) {
         //console.log('executed service')
-        return axios.get(`${JPA_API_URL}/users/${name}/todos/${id}`);
+        return axios.get(`https://localhost:4200/users/${name}`);
     }
 
-    deleteTodo(name, id) {
+    deleteTodo(id) {
         //console.log('executed service')
-        return axios.delete(`${JPA_API_URL}/users/${name}/todos/${id}`);
+        return axios.delete(`${JPA_API_URL}/todos/${id}`);
     }
 
     updateTodo(name, id, todo) {
@@ -23,9 +23,9 @@ class TodoDataService {
         return axios.put(`${JPA_API_URL}/users/${name}/todos/${id}`, todo);
     }
 
-    createTodo(name, todo) {
-        //console.log('executed service')
-        return axios.post(`${JPA_API_URL}/users/${name}/todos/`, todo);
+    createTodo(state) {
+       
+        return axios.post(`https://localhost:4200/users/`, state);
     }
 
 }
