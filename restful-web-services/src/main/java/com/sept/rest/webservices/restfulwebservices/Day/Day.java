@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table(name = "days")
 public class Day {
     @Id
-    private int number;
+    private int ID;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
@@ -17,12 +17,12 @@ public class Day {
     }
 
     public Day(int number, String name) {
-        this.number = number;
+        this.ID = number;
         this.name = name;
     }
 
     public int getDayNumber() {
-        return this.number;
+        return this.ID;
     }
 
     public String getDayName() {
@@ -35,7 +35,7 @@ public class Day {
 
     public void setDayNumber(int num) {
         if (num >= 1 || num <= 31) {
-            this.number = num;
+            this.ID = num;
 
         }
     }
