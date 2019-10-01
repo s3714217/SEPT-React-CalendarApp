@@ -6,33 +6,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+ 
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/day")
+
 public class DayController {
-    @Autowired
-    DayService service;
+	@Autowired
+	private DayService dayService;
+  
+  
 
     @GetMapping
     public List<Day> getDays() {
-        return service.getDays();
+        return dayService.getDays();
     }
 
     @PostMapping
     public void postDays(@RequestBody Day day) {
-        service.add(day);
+        dayService.add(day);
     }
 
     @GetMapping("/{month}/{number}")
     public Day getByNumAndMonth(@PathVariable(required = true) String month, @PathVariable(required = true) int num) {
-        return service.getDayByNumAndMonth(num, month);
+        return dayService.getDayByNumAndMonth(num, month);
     }
 
     @DeleteMapping("/{month}/{number}")
     public void delete(@PathVariable(required = true) String month, @PathVariable(required = true) int num) {
-        service.delete(num, month);
+        dayService.delete(num, month);
     }
 }
