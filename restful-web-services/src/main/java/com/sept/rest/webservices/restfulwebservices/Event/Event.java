@@ -1,8 +1,6 @@
 package com.sept.rest.webservices.restfulwebservices.Event;
 
 import java.time.*;
-import java.util.*;
-
 import javax.persistence.*;
 
 import com.sept.rest.webservices.restfulwebservices.Day.Day;
@@ -84,11 +82,11 @@ public class Event {
     }
 
     public String getEventLocation() {
-        return this.day;
+        return this.Location;
     }
 
     public void setEventLocation(String Location) {
-        this.location = location;
+        this.Location = Location;
     }
 
     public Day getEventDay() {
