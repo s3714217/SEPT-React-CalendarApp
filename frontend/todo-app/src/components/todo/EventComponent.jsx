@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import TodoDataService from '../../api/todo/TodoDataService.js'
+import EventDataService from '../../api/todo/EventDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import fs from 'fs'
 
 class EventComponent extends Component {
+
+    username = AuthenticationService.getLoggedInUserName()
     constructor(props) {
         super(props)
 
         this.state = {
-            id: this.props.match.params.id,
+        
             description: '',
             targetDate: moment(new Date()).format('YYYY-MM-DD'),
             title: ' ',
             location: ' ',
+
         }
 
         this.onSubmit = this.onSubmit.bind(this)
@@ -24,17 +27,14 @@ class EventComponent extends Component {
 
     componentDidMount() {
 
-        if (this.state.id === -1) {
-            return
-        }
 
-        let username = AuthenticationService.getLoggedInUserName()
+       
 
-        TodoDataService.retrieveTodo(username, this.state.id)
-            .then(response => this.setState({
-                description: response.data.description,
-                targetDate: moment(response.data.targetDate).format('YYYY-MM-DD')
-            }))
+    //    TodoDataService.retrieveTodo(username, this.state.id)
+    //        .then(response => this.setState({
+    //            description: response.data.description,
+    //            targetDate: moment(response.data.targetDate).format('YYYY-MM-DD')
+    //        }))
     }
 
     validate(values) {
@@ -71,28 +71,22 @@ class EventComponent extends Component {
         let username = AuthenticationService.getLoggedInUserName()
 
         let todo = {
-            id: this.state.id,
+
+            title: values.title,
             description: values.description,
             targetDate: values.targetDate,
-            title: values.title,
             location: values.location,
-        }
-     
-        
-        if (this.state.id === -1) {
-            TodoDataService.createTodo(username, todo)
-                .then(() => this.props.history.push('/todos'))
-        } else {
-            TodoDataService.updateTodo(username, this.state.id, todo)
-                .then(() => this.props.history.push('/todos'))
+
         }
 
-        console.log(values);
+        EventDataService.createEvent(todo, this.username).then(Response => this.props.history.push('/calendar'))
+
+        
     }
 
     render() {
 
-        let { description, targetDate, location, title} = this.state
+        let {description, targetDate, location, title} = this.state
         //let targetDate = this.state.targetDate
 
         return (
@@ -122,22 +116,22 @@ class EventComponent extends Component {
                                     
                                     <fieldset className="form-group">
                                         <label>Title</label>
-                                        <Field className="form-control" type="text" name="title" />
+                                        <Field className="form-control" type="text" name="title" values = {this.state.title}/>
                                     </fieldset>
                                     
                                     <fieldset className="form-group">
                                         <label>Description</label>
-                                        <Field className="form-control" type="text" name="description" />
+                                        <Field className="form-control" type="text" name="description" values = {this.state.description}/>
                                     </fieldset>
                                     
                                     <fieldset className="form-group">
                                         <label>Target Date</label>
-                                        <Field className="form-control" type="date" name="targetDate" />
+                                        <Field className="form-control" type="date" name="targetDate" values = {this.state.targetDate}/>
                                     </fieldset>
                                     
                                     <fieldset className="form-group">
                                         <label>Location</label>
-                                        <Field className="form-control" type="text" name="location" />
+                                        <Field className="form-control" type="text" name="location" values = {this.state.location}/>
                                     </fieldset>
                                     <button className="btn btn-success" type="submit">Add</button>
                                 </Form>

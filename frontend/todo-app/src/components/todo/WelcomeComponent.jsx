@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import HelloWorldService from '../../api/todo/HelloWorldService.js'
+import AuthenticationService from './AuthenticationService.js'
 
 class WelcomeComponent extends Component {
 
@@ -19,8 +20,8 @@ class WelcomeComponent extends Component {
             <>
                 <h1>Welcome!</h1>
                 <div className="container">
-                    Welcome {this.props.match.params.name}.
-                    You can manage your todos <Link to="/todos">here</Link>.
+                    Welcome {AuthenticationService.getLoggedInUserName()}.
+                    You can manage your calendar <Link to="/calendar">here</Link>.
                 </div>
                 <div className="container">
                     Click here to get a customized welcome message.

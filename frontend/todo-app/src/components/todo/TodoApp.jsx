@@ -13,6 +13,7 @@ import TodoComponent from './TodoComponent.jsx'
 import RegistrationComponent from './RegistrationComponent.jsx'
 import ForgotPasswordComponent from './ForgotPasswordComponent.jsx'
 import RecoverPasswordComponent from './RecoverPasswordComponent.jsx'
+import AuthenticationService from './AuthenticationService.js'
 
 const style = {
     position: 'relative',
@@ -33,8 +34,8 @@ class TodoApp extends Component {
                             <Route path="/forgotpassword" component={ForgotPasswordComponent}/>
                             <Route path="/recoverpaasword" component={RecoverPasswordComponent}/>
                             <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
-                            <AuthenticatedRoute path="/todos/event" component={EventComponent}/>
-                            <AuthenticatedRoute path="/todos" component={ListTodosComponent}/>
+                            <AuthenticatedRoute path="/calendar/event" component={EventComponent}/>
+                            <AuthenticatedRoute path="/calendar" component={ListTodosComponent}/>
                             <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
                             
                             <Route component={ErrorComponent}/>

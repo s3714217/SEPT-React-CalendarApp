@@ -7,6 +7,8 @@ import TodoDataService from '../../api/todo/TodoDataService.js'
 class RegistrationComponent extends Component {
 
     
+    
+
     constructor(props) {
         super(props)
 
@@ -54,6 +56,15 @@ class RegistrationComponent extends Component {
 
 
     registerClicked() {
+
+        AuthenticationService.executeJwtAuthenticationService('sept', 'dummy')
+    .then(response => {
+        AuthenticationService.registerSuccessfulLoginForJwt
+        (
+        'sept',
+        response.data.token
+        )
+    });
 
         if (this.state.username.length != 0 &&
             this.state.password.length != 0 &&

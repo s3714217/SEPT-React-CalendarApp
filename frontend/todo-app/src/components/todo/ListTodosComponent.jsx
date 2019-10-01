@@ -3,6 +3,7 @@ import TodoDataService from '../../api/todo/TodoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
 import EventList from './EventListComponent'
+import { Link } from 'react-router-dom'
 
 
 
@@ -263,6 +264,8 @@ class ListTodosComponent extends Component {
                         {trElems}
                     </tbody>
                 </table>
+                
+                 <Link type = 'button' className="btn btn-success" to="/calendar/event">Add Event</Link> 
                 
                  <EventList></EventList>
             </div>

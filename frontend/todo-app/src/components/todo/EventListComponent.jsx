@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PostData from './MockJSONdata/MockEvent.json'
+import AuthenticationService from './AuthenticationService.js'
+import EventDataService from '../../api/todo/EventDataService.js'
 
 
 class EventList extends Component {
