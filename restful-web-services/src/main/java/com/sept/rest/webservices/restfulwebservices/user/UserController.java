@@ -45,7 +45,7 @@ public class UserController {
 
 	  
 	  @GetMapping("/users/{ID}")
-	  public ResponseEntity<User> getUsersByID(@PathVariable(value = "id") Long userID)
+	  public ResponseEntity<User> getUsersByID(@PathVariable(value = "id") int userID)
 	      throws Exception {
 	    
 		  User user = userRepository.findByUserID(userID).orElseThrow(() -> new Exception("User not found on : " + userID));
@@ -68,7 +68,7 @@ public class UserController {
 	  }
 
 	@PutMapping("/users/{ID}")
-	  public ResponseEntity<User> updateUser(@PathVariable(value = "ID") Long userID, @Valid @RequestBody User userDetails)
+	  public ResponseEntity<User> updateUser(@PathVariable(value = "ID") int userID, @Valid @RequestBody User userDetails)
 	      throws Exception {
 		
 	    User user = userRepository.findByUserID(userID).orElseThrow(() -> new Exception("User not found on : " + userID));
@@ -76,13 +76,16 @@ public class UserController {
 	    user.setFirstName(userDetails.getFirstName());
 	    user.setLastName(userDetails.getLastName());
 	    user.setEmail(userDetails.getEmail());
+	    user.setFavColour(userDetails.getFavColour());
+	    user.setFatherMiddle(userDetails.getFatherMiddle());
+	    user.setMotherMiddle(userDetails.getFatherMiddle());
 	    userRepository.save(user);
 	    return  new ResponseEntity<User>(user, HttpStatus.OK);
 	  
 	  }
 
 	  @DeleteMapping("/user/{ID}")
-	  public Map<String, Boolean> deleteUser(@PathVariable(value = "ID") Long userID) throws Exception {
+	  public Map<String, Boolean> deleteUser(@PathVariable(value = "ID") int userID) throws Exception {
 	    User user =
 	        userRepository
 	            .findById(userID)
