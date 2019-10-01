@@ -7,15 +7,21 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import com.sept.rest.webservices.restfulwebservices.user.user;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import javax.validation.Valid;
+
+import com.sept.rest.webservices.restfulwebservices.user.User;
 
 @Component
 public class UserService {
     @Autowired
-    UserRepository repository;
+    UserRepository userRepository;
 	
 public List<User> getAllUsers() 
 	  {
@@ -23,18 +29,19 @@ public List<User> getAllUsers()
 	   
 	  }
 	  
-	  @Bean
-	  public PasswordEncoder passwordEncoder() {
-	      return new BCryptPasswordEncoder();
-	  }
+//	  @Bean
+//	  public PasswordEncoder passwordEncoder() {
+//	      return new BCryptPasswordEncoder();
+//	  }
 	
 	
 	
-public void createUser(@Valid @RequestBody User user) {
+public User createUser(@Valid @RequestBody User user) {
 		 
-		  if (userRepository.findByUserID(user.getUserID()).isPresent() == false)
+	
+		  if (userRepository.findByUserName(user.getUserName()).isPresent() == false)
 		  {
-			  user = new User(user.getUserID(), user.getUserName(),this.passwordEncoder().encode(user.getUserPassword()));
+			  user = new User(user.getUserName(), user.getUserPassword());
 			  return userRepository.save(user);
 		  }
 		  else
@@ -46,41 +53,41 @@ public void createUser(@Valid @RequestBody User user) {
 	  
 	  
 	  
-public ResponseEntity<User> getUsersByID(@PathVariable(value = "id") int userID)
+public ResponseEntity<User> getUsersByuserName(@PathVariable(value = "id") String userName)
 	      throws Exception {
 	    
-		  User user = userRepository.findByUserID(userID).orElseThrow(() -> new Exception("User not found on : " + userID));
+		  User user = userRepository.findByUserName(userName).orElseThrow(() -> new Exception("User not found on : " + userName));
 		  return  new ResponseEntity<User>(user, HttpStatus.OK);
 	  }
 
 	  
-public ResponseEntity<User> updateUser(@PathVariable(value = "ID") int userID, @Valid @RequestBody User userDetails)
-	      throws Exception {
-		
-	    User user = userRepository.findByUserID(userID).orElseThrow(() -> new Exception("User not found on : " + userID));
-	    userRepository.delete(user);
-	    user.setFirstName(userDetails.getFirstName());
-	    user.setLastName(userDetails.getLastName());
-	    user.setEmail(userDetails.getEmail());
-		user.setFavColour(userDetails.getFavColour());
-	    user.setFatherMiddle(userDetails.getFatherMiddle());
-	    user.setMotherMiddle(userDetails.getFatherMiddle());
-	    userRepository.save(user);
-	    return  new ResponseEntity<User>(user, HttpStatus.OK);
+//public ResponseEntity<User> updateUser(@PathVariable(value = "ID") String userName, @Valid @RequestBody User userDetails)
+//	      throws Exception {
+//		
+//	    User user = userRepository.findByUserName(userName).orElseThrow(() -> new Exception("User not found on : " + userName));
+//	    userRepository.delete(user);
+//	    user.setUserName(userDetails.getUserName());
+//	    user.setUserPassword(userDetails.getUserPassword());
+//	    user.setEmailAdd(userDetails.getEmailAdd());
+//		user.setFavColour(userDetails.getFavColour());
+//	    user.setFatherMiddle(userDetails.getFatherMiddle());
+//	    user.setMotherMiddle(userDetails.getFatherMiddle());
+//	    userRepository.save(user);
+//	    return  new ResponseEntity<User>(user, HttpStatus.OK);
+//	  
+//	  }
 	  
-	  }
 	  
-	  
-public Map<String, Boolean> deleteUser(@PathVariable(value = "ID") int userID) throws Exception {
-	    User user =
-	        userRepository
-	            .findById(userID)
-	            .orElseThrow(() -> new Exception("User not found on : " + userID));
-	    userRepository.delete(user);
-	    Map<String, Boolean> response = new HashMap<>();
-	    response.put("deleted", Boolean.TRUE);
-	    return response;
-	  }
+//public Map<String, Boolean> deleteUser(@PathVariable(value = "ID") String userName) throws Exception {
+//	    User user =
+//	        userRepository
+//	            .findByUserName(userName)
+//	            .orElseThrow(() -> new Exception("User not found on : " + userName));
+//	    userRepository.delete(user);
+//	    Map<String, Boolean> response = new HashMap<>();
+//	    response.put("deleted", Boolean.TRUE);
+//	    return response;
+//	  }
 	  
 }
 	  
