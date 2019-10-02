@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PostData from './MockJSONdata/MockEvent.json'
+import GetData from './MockJSONdata/MockEvent.json'
 import AuthenticationService from './AuthenticationService.js'
-import EventDataService from '../../api/todo/EventDataService.js'
+import EventDataService from './EventDataService.js'
 
 
 class EventList extends Component {
@@ -11,6 +12,9 @@ class EventList extends Component {
         this.width = props.width || "600px";
         this.style = props.style || {};
         this.style.width = this.width; // add this
+        
+      
+        
     }
     
     render() {

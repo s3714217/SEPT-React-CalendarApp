@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import EventDataService from '../../api/todo/EventDataService.js'
+import EventDataService from './EventDataService.js'
 import AuthenticationService from './AuthenticationService.js'
-import fs from 'fs'
+import jsonfile from'jsonfile';
 
 class EventComponent extends Component {
 
+    file = './MockJSONdata/MockEvent.json'
     username = AuthenticationService.getLoggedInUserName()
     constructor(props) {
         super(props)
@@ -78,7 +79,6 @@ class EventComponent extends Component {
             location: values.location,
 
         }
-
         EventDataService.createEvent(todo, this.username).then(Response => this.props.history.push('/calendar'))
 
         

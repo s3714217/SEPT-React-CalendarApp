@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import TodoDataService from '../../api/todo/TodoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
 import EventList from './EventListComponent'
@@ -17,7 +16,9 @@ class ListTodosComponent extends Component {
         selectedDay: null
     }
 
+    
     constructor(props) {
+        
         super(props);
         this.width = props.width || "600px";
         this.style = props.style || {};
@@ -266,6 +267,7 @@ class ListTodosComponent extends Component {
                 </table>
                 
                  <Link type = 'button' className="btn btn-success" to="/calendar/event">Add Event</Link> 
+                 <div></div>
                 
                  <EventList></EventList>
             </div>

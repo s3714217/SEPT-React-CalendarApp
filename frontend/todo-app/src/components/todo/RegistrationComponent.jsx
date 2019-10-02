@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
-import TodoDataService from '../../api/todo/TodoDataService.js'
 
  
 
@@ -77,8 +76,11 @@ class RegistrationComponent extends Component {
         )
          
         {
-            TodoDataService.createTodo(this.state)
-            .then(() => this.props.history.push('/login'))
+           // TodoDataService.createTodo(this.state)
+           // .then(() => this.props.history.push('/login'))
+
+           AuthenticationService.RegisterAuthenticationService(this.state)
+           .then(() => this.props.history.push('/login'))
         }
         
         else {
