@@ -53,7 +53,7 @@ public User createUser(@Valid @RequestBody User user) {
 	  
 	  
 	  
-public ResponseEntity<User> getUsersByuserName(@PathVariable(value = "id") String userName)
+public ResponseEntity<User> getUsersByuserName(@PathVariable(value = "username") String userName)
 	      throws Exception {
 	    
 		  User user = userRepository.findByUserName(userName).orElseThrow(() -> new Exception("User not found on : " + userName));
