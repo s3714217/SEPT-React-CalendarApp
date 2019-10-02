@@ -14,7 +14,7 @@ public class EventService {
     EventJpaRepository repository;
 
     public void add(Event event) {
-        repository.save(toEntity(event));
+        
     }
 
     public void delete(int id) {

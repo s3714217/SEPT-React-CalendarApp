@@ -14,7 +14,7 @@ public class DayService {
     DayJpaRepository repository;
 
     public void add(Day day) {
-        repository.save(toEntity(day));
+        
     }
 
     public void delete(int num, String month) {
