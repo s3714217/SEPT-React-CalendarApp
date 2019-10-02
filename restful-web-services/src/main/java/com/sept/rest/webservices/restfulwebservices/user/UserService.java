@@ -22,7 +22,8 @@ import com.sept.rest.webservices.restfulwebservices.user.User;
 public class UserService {
     @Autowired
     UserRepository userRepository;
-	
+
+//TEST if returned list equals the actual list - CANT TEST NOW
 public List<User> getAllUsers() 
 	  {
 	    return userRepository.findAll();
@@ -35,7 +36,9 @@ public List<User> getAllUsers()
 //	  }
 	
 	
-	
+//TEST nullpointer exception
+//TEST if user exists but their name already exists in the repo, cannot add/return null
+//TEST if user exists and their name does not exist in the repo, can add
 public User createUser(@Valid @RequestBody User user) {
 		 
 	
@@ -52,7 +55,8 @@ public User createUser(@Valid @RequestBody User user) {
 	  }
 	  
 	  
-	  
+//TEST exception for user not found - CANT TEST NOW
+
 public ResponseEntity<User> getUsersByuserName(@PathVariable(value = "username") String userName)
 	      throws Exception {
 	    
