@@ -4,8 +4,7 @@ node_js:
 cache:
   directories:
     - node_modules
-before_install:
-  - gem install rake
 script:
+  - cd frontend/todo-app
   - npm test
   - npm run build
