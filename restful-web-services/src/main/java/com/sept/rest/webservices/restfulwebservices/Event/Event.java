@@ -86,5 +86,12 @@ public class Event {
     public void setEventDay(Day day) {
         this.day = day;
     }
+    
+    public String toString() {
+    	return "Event Title : "+eventTitle+"/n "
+    			+"Event Description: "+description+"/n"
+    			+"Event Time : "+time+"/n"
+    			+"Event Location : "+Location+"/n";
+    }
 
 }

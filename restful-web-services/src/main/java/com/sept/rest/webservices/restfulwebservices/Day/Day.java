@@ -14,8 +14,8 @@ public class Day {
     @Column(nullable = false)
     private String month;
    
-    @OneToMany
-    @JoinColumn(name = "DayNumber")
+    //@OneToMany
+    //@JoinColumn(name = "DayNumber")
     private ArrayList<Event> events = new ArrayList<Event>();
     
     
