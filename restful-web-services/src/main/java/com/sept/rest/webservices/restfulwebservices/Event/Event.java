@@ -19,10 +19,7 @@ public class Event {
     String description;
 
     @Column(nullable = false)
-    LocalDateTime dateTime;
-
-    @Column(nullable = false)
-    LocalDateTime endTime;
+    String time;
 
     @Column(nullable = false)
     String Location;
@@ -30,13 +27,12 @@ public class Event {
     @ManyToOne
     Day day;
 
-    public Event(String eventTitle, String description, LocalDateTime dateTime, LocalDateTime endTime, String Location,
+    public Event(String eventTitle, String description,String time, String Location,
             Day day) {
 
         this.eventTitle = eventTitle;
         this.description = description;
-        this.dateTime = dateTime;
-        this.endTime = endTime;
+        this.time = time;
         this.day = day;
 
     }
@@ -65,21 +61,15 @@ public class Event {
         this.description = description;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public String getDateTime() {
+        return time;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setDateTime(String time) {
+        this.time = time;
     }
 
-    public LocalDateTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
-    }
+   
 
     public String getEventLocation() {
         return this.Location;

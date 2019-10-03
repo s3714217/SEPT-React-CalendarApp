@@ -17,23 +17,5 @@ public class EventController {
     @Autowired
     EventService service;
 
-    @GetMapping
-    public List<Event> getEvents() {
-        return service.getEvents();
-    }
-
-    @PostMapping
-    public void postEvents(@RequestBody Event event) {
-        service.add(event);
-    }
-
-    @GetMapping("/{id}")
-    public Event getByNumAndMonth(@PathVariable(required = true) int id) {
-        return service.getEventById(id);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete( @PathVariable(required = true) int id) {
-        service.delete(id);
-    }
+    
 }

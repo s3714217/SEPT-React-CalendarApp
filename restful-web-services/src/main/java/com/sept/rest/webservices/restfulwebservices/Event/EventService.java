@@ -37,15 +37,6 @@ public class EventService {
 
     }
 
-    private Event toEntity(Event event) {
-        Event entity = event;
-        entity.setEventID(event.getEventID());
-        entity.setEventTitle(event.getEventTitle());
-        entity.setDescription(event.getDescription());
-        entity.setDateTime(event.getDateTime());
-        entity.setEndTime(event.getEndTime());
-        entity.setEventDay(event.getEventDay());
-        return entity;
-    }
+  
 
 }
