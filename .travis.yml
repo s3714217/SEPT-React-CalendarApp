@@ -7,4 +7,3 @@ cache:
 script:
   - cd frontend/todo-app
   - npm test
-  - npm run build
