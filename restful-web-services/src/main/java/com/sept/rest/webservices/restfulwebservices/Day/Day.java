@@ -3,79 +3,72 @@ package com.sept.rest.webservices.restfulwebservices.Day;
 import java.util.*;
 import javax.persistence.*;
 
+import com.sept.rest.webservices.restfulwebservices.Event.Event;
+
 @Entity
 @Table(name = "days")
 public class Day {
     @Id
-    private int ID;
     @Column(nullable = false)
-    private String name;
+    private int dayNumber;
     @Column(nullable = false)
     private String month;
+   
+    @OneToMany
+    @JoinColumn(name = "DayNumber")
+    private ArrayList<Event> events = new ArrayList<Event>();
+    
+    
 
-    public Day() {
-    }
-
-    public Day(int number, String name) {
-        this.ID = number;
-        this.name = name;
+    public Day(int number, String month) {
+        this.dayNumber = number;
+        this.month = month;
+      
     }
 
     public int getDayNumber() {
-        return this.ID;
+        return this.dayNumber;
     }
 
-    public String getDayName() {
-        return this.name;
-    }
+  
 
     public String getDayMonth() {
         return this.month;
     }
 
-    public void setDayNumber(int num) {
-        if (num >= 1 || num <= 31) {
-            this.ID = num;
+	public void setEvent(Event event) {
+		for(Event event1 : events) {
+			if(event1.getEventID() == event.getEventID()) {
+				events.remove(event1);
+				events.add(event);
+				
+			}
+			else {
+				events.add(event);
+			}
+			
+		}
+		
+	}
+	
 
-        }
-    }
+	public void deleteEvent(int eventId) {
+		for(Event event : events) {
+			if(event.getEventID() == eventId) {
+				events.remove(event);
+				
+				
+			}
+		}
+	}
 
-    public void setDayName(String name) {
-        ArrayList<String> days = new ArrayList<String>();
-        days.add("sunday");
-        days.add("saturday");
-        days.add("monday");
-        days.add("tuesday");
-        days.add("wednesday");
-        days.add("thursday");
-        days.add("friday");
+	public ArrayList<Event> getEvents() {
+		
+		return events;
+	}
 
-        if (days.contains(name)) {
-            this.name = name;
+    
+   
 
-        }
-
-    }
-
-    public void setDayMonth(String month) {
-        ArrayList<String> months = new ArrayList<String>();
-        months.add("January");
-        months.add("February");
-        months.add("March");
-        months.add("April");
-        months.add("May");
-        months.add("June");
-        months.add("July");
-        months.add("August");
-        months.add("September");
-        months.add("October");
-        months.add("November");
-        months.add("December");
-
-        if (months.contains(month)) {
-            this.month = month;
-
-        }
-    }
 
 }
