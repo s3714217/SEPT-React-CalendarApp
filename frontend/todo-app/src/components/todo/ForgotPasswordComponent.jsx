@@ -50,10 +50,13 @@ class ForgotPasswordComponent extends Component {
             this.state.second_security_question.length != 0 &&
             this.state.third_security_question.length != 0) {
             // for now, let's try and redirect only.
+            this.setState({showSuccessMessage:true})
+            this.setState({hasLoginFailed:false})
             this.props.history.push(`/recoverpaasword/${this.state.username}`)
             this.setState({showSuccessMessage:true})
             this.setState({hasLoginFailed:false})
         }
+
         else {
             this.setState({showSuccessMessage:false})
             this.setState({hasLoginFailed:true})
@@ -70,6 +73,7 @@ class ForgotPasswordComponent extends Component {
                     {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
                     {this.state.hasLoginFailed && <div className="alert alert-warning">Please make sure not to leave any field empty</div>}
                     {this.state.showSuccessMessage && <div>Login Sucessful</div>}
+
                     {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
                     <h5>Please Answer these Security Questions for the Purpose of Recovring your Account</h5>
                     <br></br>
