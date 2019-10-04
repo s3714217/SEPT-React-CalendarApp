@@ -67,11 +67,15 @@ class RegistrationComponent extends Component {
 
         if (this.state.username.length != 0 &&
             this.state.password.length != 0 &&
+            this.state.password.length > 6 &&
             this.state.password === this.state.confirmed_password &&
             this.state.email_address.length != 0 &&
             this.state.first_security_question.length != 0 &&
+            this.state.first_security_question.length > 5 &&
             this.state.second_security_question.length != 0 &&
-            this.state.third_security_question.length != 0
+            this.state.second_security_question.length > 5 &&
+            this.state.third_security_question.length != 0 &&
+            this.state.third_security_question.length > 5
             
         )
          
@@ -79,8 +83,22 @@ class RegistrationComponent extends Component {
            // TodoDataService.createTodo(this.state)
            // .then(() => this.props.history.push('/login'))
 
-           AuthenticationService.RegisterAuthenticationService(this.state)
-           .then(() => this.props.history.push('/login'))
+
+        //    AuthenticationService.RegisterAuthenticationService(this.state)
+        //    .then(() => this.props.history.push('/login'))
+           this.props.history.push(`/login/`)
+        }
+        else if (this.state.password.length <= 6){
+            this.setState({hasShortPassword:true})
+        }
+
+        else if (this.state.password != this.state.confirmed_password) {
+            this.setState({unMatchedPassword:true})
+        }
+        else if (this.state.first_security_question.length <= 5
+            && this.state.second_security_question.length <= 5
+            && this.state.third_security_question.length <= 5){
+            this.setState({invalid_security:true})
         }
         
         else {
@@ -95,7 +113,11 @@ class RegistrationComponent extends Component {
                 <h1>Registration</h1>
                 <div className="container">
                     {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
-                    {this.state.hasLoginFailed && <div className="alert alert-warning">Please make sure not to leave any field empty AND both your passwords have to match AND email is valid!</div>}
+                    {this.state.hasLoginFailed && <div className="alert alert-warning">Please make sure not to leave any field empty AND email is valid!</div>}
+                    {this.state.hasShortPassword && <div className="alert alert-warning">Password length must be greater than 6 characters!</div>}
+                    {this.state.invalid_security && <div className="alert alert-warning">Answer of securtity questions must be of length 6 or more!</div>}
+                    {this.state.unMatchedPassword && <div className="alert alert-warning">Please make sure you passwords are matching!</div>}
+
                     {this.state.showSuccessMessage && <div>Login Sucessful</div>}
                     {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
                     User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />

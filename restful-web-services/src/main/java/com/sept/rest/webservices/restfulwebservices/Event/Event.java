@@ -4,6 +4,7 @@ import java.time.*;
 import javax.persistence.*;
 
 import com.sept.rest.webservices.restfulwebservices.Day.Day;
+import com.sept.rest.webservices.restfulwebservices.user.User;
 
 @Entity
 @Table(name = "events")
@@ -19,10 +20,7 @@ public class Event {
     String description;
 
     @Column(nullable = false)
-    LocalDateTime dateTime;
-
-    @Column(nullable = false)
-    LocalDateTime endTime;
+    String time;
 
     @Column(nullable = false)
     String Location;
@@ -30,14 +28,17 @@ public class Event {
     @ManyToOne
     Day day;
 
-    public Event(String eventTitle, String description, LocalDateTime dateTime, LocalDateTime endTime, String Location,
-            Day day) {
+    @ManyToOne
+    User user;
+
+    public Event(String eventTitle, String description, String time, String Location, Day day, User user) {
 
         this.eventTitle = eventTitle;
         this.description = description;
-        this.dateTime = dateTime;
-        this.endTime = endTime;
+        this.time = time;
+        this.Location = Location;
         this.day = day;
+        this.user = user;
 
     }
 
@@ -65,20 +66,12 @@ public class Event {
         this.description = description;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public String getDateTime() {
+        return time;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-
-    public LocalDateTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
+    public void setDateTime(String time) {
+        this.time = time;
     }
 
     public String getEventLocation() {
@@ -95,6 +88,19 @@ public class Event {
 
     public void setEventDay(Day day) {
         this.day = day;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String toString() {
+        return "Event Title : " + eventTitle + "/n " + "Event Description: " + description + "/n" + "Event Time : "
+                + time + "/n" + "Event Location : " + Location + "/n";
     }
 
 }

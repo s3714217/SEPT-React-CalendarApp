@@ -47,8 +47,14 @@ class RecoverPasswordComponent extends Component {
 
         // check if both passwords match
         if(this.state.password === this.state.confirmed_password && this.state.password.length != 0){
+            this.setState({hasShortPassword:false})
             this.props.history.push(`/login/`)
         }
+
+        else if (this.state.password.length <= 6){
+            this.setState({hasShortPassword:true})
+        }
+
         else {
             this.setState({showSuccessMessage:false})
             this.setState({hasLoginFailed:true})
@@ -64,6 +70,8 @@ class RecoverPasswordComponent extends Component {
                     {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
                     {this.state.hasLoginFailed && <div className="alert alert-warning">Your entered passwords do not match</div>}
                     {this.state.showSuccessMessage && <div>Login Sucessful</div>}
+                    {this.state.hasShortPassword && <div className="alert alert-warning">Password length must be greater than 6 characters!</div>}
+
                     {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
                     <h5>Please enter your desired new password</h5>
                     <br></br>

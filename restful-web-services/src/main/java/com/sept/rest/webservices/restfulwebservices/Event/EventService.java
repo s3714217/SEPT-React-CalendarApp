@@ -14,7 +14,14 @@ public class EventService {
     EventJpaRepository repository;
 
     public void add(Event event) {
-        repository.save(toEntity(event));
+        repository.addEvent(event);
+        repository.save(event);
+    }
+    
+    public void update(int eventID,Event event) {
+    	
+    	 repository.updateEvent(eventID, event);
+    	
     }
 
     public void delete(int id) {
@@ -26,26 +33,19 @@ public class EventService {
     }
 
     public Event getEventById(int id) {
-        Optional<Event> optionalEvent = repository.findEvent(id);
-        return optionalEvent.orElseThrow();
+        Event optionalEvent = repository.findEvent(id);
+        return optionalEvent;
 
     }
 
     public Event getEventByDay(Day day) {
-        Optional<Event> optionalEvent = repository.findEvent(day);
-        return optionalEvent.orElseThrow();
+        Event optionalEvent = repository.findEvent(day);
+        return optionalEvent;
 
     }
+    
+    
 
-    private Event toEntity(Event event) {
-        Event entity = event;
-        entity.setEventID(event.getEventID());
-        entity.setEventTitle(event.getEventTitle());
-        entity.setDescription(event.getDescription());
-        entity.setDateTime(event.getDateTime());
-        entity.setEndTime(event.getEndTime());
-        entity.setEventDay(event.getEventDay());
-        return entity;
-    }
+  
 
 }
