@@ -24,7 +24,7 @@ matrix:
         script: ./mvnw clean install
   
         script:
-          # - cd restful-web-services
+          - cd restful-web-services/src/main/java/com/sept/rest/webservices/restfulwebservices
           - javac RestfulWebServicesApplication.java 
 
 
