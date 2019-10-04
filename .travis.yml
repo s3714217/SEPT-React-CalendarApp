@@ -11,13 +11,14 @@ matrix:
           - npm test
 
       - language: java
+      
         jdk:
           - oraclejdk8
-          - oraclejdk9
-          - oraclejdk11
           - openjdk8
-          - openjdk-ea
-        
+  
         script:
           - cd restful-web-services
           - javac RestfulWebServicesApplication.java 
+
+
+          
