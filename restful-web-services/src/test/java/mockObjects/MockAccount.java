@@ -4,77 +4,77 @@ import java.util.function.BooleanSupplier;
 
 public class MockAccount {
 
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public static BooleanSupplier validEmail(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public static BooleanSupplier emptyInputField() {
+	public BooleanSupplier validEmail(String string) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static Short getConfirmPassword() {
+	public BooleanSupplier emptyInputField() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static Short getPassword() {
+	public Short getConfirmPassword() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static BooleanSupplier matchPassword(Short password, Short confirmPassword) {
+	public Short getPassword() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static BooleanSupplier checkLength(Short password, int i) {
+	public BooleanSupplier matchPassword(Short password, Short confirmPassword) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static Short getQuestion1Answer() {
+	public BooleanSupplier checkLength(Short password, int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static Short getQuestion2Answer() {
+	public Short getQuestion1Answer() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static Short getQuestion3Answer() {
+	public Short getQuestion2Answer() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static Object getInput() {
+	public Short getQuestion3Answer() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static Object getUsername() {
+	public Object getInput() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static BooleanSupplier correctUserName(Object input, Object username) {
+	public Object getUsername() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static Short getRecoveredPassword() {
+	public BooleanSupplier correctUserName(Object input, Object username) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static Short getConfirmRecoveredPassword() {
+	public Short getRecoveredPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Short getConfirmRecoveredPassword() {
 		// TODO Auto-generated method stub
 		return null;
 	}
