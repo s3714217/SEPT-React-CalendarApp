@@ -15,4 +15,5 @@ jdk:
   - openjdk7
  
 script:
+  - cd restful-web-services
   - javac RestfulWebServicesApplication.java 
