@@ -4,6 +4,7 @@ import java.time.*;
 import javax.persistence.*;
 
 import com.sept.rest.webservices.restfulwebservices.Day.Day;
+import com.sept.rest.webservices.restfulwebservices.user.User;
 
 @Entity
 @Table(name = "events")
@@ -27,13 +28,17 @@ public class Event {
     @ManyToOne
     Day day;
 
-    public Event(String eventTitle, String description,String time, String Location,
-            Day day) {
+    @ManyToOne
+    User user;
+
+    public Event(String eventTitle, String description, String time, String Location, Day day, User user) {
 
         this.eventTitle = eventTitle;
         this.description = description;
         this.time = time;
+        this.Location = Location;
         this.day = day;
+        this.user = user;
 
     }
 
@@ -69,8 +74,6 @@ public class Event {
         this.time = time;
     }
 
-   
-
     public String getEventLocation() {
         return this.Location;
     }
@@ -86,12 +89,18 @@ public class Event {
     public void setEventDay(Day day) {
         this.day = day;
     }
-    
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public String toString() {
-    	return "Event Title : "+eventTitle+"/n "
-    			+"Event Description: "+description+"/n"
-    			+"Event Time : "+time+"/n"
-    			+"Event Location : "+Location+"/n";
+        return "Event Title : " + eventTitle + "/n " + "Event Description: " + description + "/n" + "Event Time : "
+                + time + "/n" + "Event Location : " + Location + "/n";
     }
 
 }

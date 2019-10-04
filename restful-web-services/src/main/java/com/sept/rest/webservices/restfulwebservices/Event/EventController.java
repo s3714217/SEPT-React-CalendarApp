@@ -20,7 +20,7 @@ public class EventController {
     @Autowired
     EventService service;
 
-    @PostMapping(value = "/")
+    @PostMapping(value = "/{userName}/event/")
 	public void createEvent(@RequestBody Event event){
 		service.repository.addEvent(event);
 		
@@ -29,33 +29,42 @@ public class EventController {
 		
 	}
 	
-	@DeleteMapping(value = "/")
-	public void DeleteEvent(@RequestBody Event event){
+	@DeleteMapping(value = "/{userName}/event/{id}")
+	public void DeleteEvent(@PathVariable (required = true) String userName,@PathVariable (required = true) int id,@RequestBody Event event){
 		Event event1 = service.repository.findEvent(event.getEventID());
 		//FIT HERE EVENT SETUP
+		if(!(event1 == null)&&event1.getEventID() == id) {
 		service.delete(event1.getEventID());
-		
+		}
 		
 	}
 	
 	
 	
-	@PutMapping(value = "/")
-	public void UpdateEvent(@RequestBody Event event){
+	@PutMapping(value = "/{userName}/event/{id}")
+	public void UpdateEvent(@PathVariable (required = true) String userName,@PathVariable (required = true) int id,@RequestBody Event event){
 		Event event1 = service.repository.findEvent(event.getEventID());
 		//FIT HERE EVENT SETUP
+		if(!(event1==null)) {
 		service.update(event1.getEventID(), event1);
-		
+		}
 	}
 	
 	@SuppressWarnings("null")
-	@RequestMapping(value = "/")
-	public List<Event> DisplayEvents(){
+	@RequestMapping(value = "/{userName}/event/")
+	public List<Event> DisplayEvents(@PathVariable(required = true) String userName){
+		
 		
 	
 		List<Event> events = service.repository.findAll();
-		
-		return events;
+		List<Event> eventsForUser = null;
+		for(Event event : events) {
+			if(event.getUser().getUserName().equals(userName)) {
+				eventsForUser.add(event);
+			}
+			
+		}
+		return eventsForUser;
 		
 	}
     

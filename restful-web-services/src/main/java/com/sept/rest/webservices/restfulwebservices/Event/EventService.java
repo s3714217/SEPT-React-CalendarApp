@@ -39,8 +39,8 @@ public class EventService {
     }
 
     public Event getEventByDay(Day day) {
-        Optional<Event> optionalEvent = repository.findEvent(day);
-        return optionalEvent.orElseThrow();
+        Event optionalEvent = repository.findEvent(day);
+        return optionalEvent;
 
     }
     
