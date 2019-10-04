@@ -10,15 +10,14 @@ matrix:
           - cd frontend/todo-app
           - npm test
 
-      # - language: java
+      - language: java
       
-      #   jdk:
-      #     - oraclejdk8
-      #     - openjdk8
+        jdk:
+          - oraclejdk9
   
-      #   script:
-      #     - cd restful-web-services
-      #     - javac RestfulWebServicesApplication.java 
+        script:
+          - cd restful-web-services
+          - javac RestfulWebServicesApplication.java 
 
 
           
