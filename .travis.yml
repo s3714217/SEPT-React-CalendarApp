@@ -18,10 +18,6 @@ matrix:
       
         jdk:
           - oraclejdk9
-          
-        install: true
-        
-        script: ./mvnw clean install
 
 
 
