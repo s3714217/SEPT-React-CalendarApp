@@ -15,7 +15,6 @@ matrix:
 
 
       - language: java
-        script: cd restful-web-services
         script: mvn test
         jdk:
           - oraclejdk9
