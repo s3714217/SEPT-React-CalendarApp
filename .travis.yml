@@ -18,6 +18,8 @@ matrix:
       
         jdk:
           - oraclejdk9
+        
+        script: ant build
 
 
 
