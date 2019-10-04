@@ -9,11 +9,16 @@ import com.sept.rest.webservices.restfulwebservices.Day.Day;
 
 @Repository
 public interface EventJpaRepository extends JpaRepository<Event, Long> {
-
+	
+	
 	void deleteById(int id);
 
 	Optional<Event> findEvent(int id);
 
 	Optional<Event> findEvent(Day day);
+
+	void addEvent(Event event);
+
+	void updateEvent(int eventID, Event event);
 
 }

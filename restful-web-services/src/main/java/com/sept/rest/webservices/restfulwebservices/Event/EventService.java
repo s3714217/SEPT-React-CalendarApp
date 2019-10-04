@@ -14,7 +14,14 @@ public class EventService {
     EventJpaRepository repository;
 
     public void add(Event event) {
-        
+        repository.addEvent(event);
+        repository.save(event);
+    }
+    
+    public void update(int eventID,Event event) {
+    	
+    	 repository.updateEvent(eventID, event);
+    	
     }
 
     public void delete(int id) {
@@ -36,6 +43,8 @@ public class EventService {
         return optionalEvent.orElseThrow();
 
     }
+    
+    
 
   
 

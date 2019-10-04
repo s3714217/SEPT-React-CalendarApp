@@ -32,9 +32,9 @@ public class DayController {
 	}
 	
 	@PostMapping(value = "/{month}/{day}/create")
-	public void createEventOnDay(@PathVariable(required = true) String month,@PathVariable(required = true) int day){
+	public void createEventOnDay(@PathVariable(required = true) String month,@PathVariable(required = true) int day,@RequestBody Event event){
 		Day tempday = dayService.repository.findDay(day, month);
-		//FIT HERE EVENT SETUP
+		
 		dayService.addEvent(tempday, event);
 		
 		
@@ -52,10 +52,10 @@ public class DayController {
 	
 	
 	@PutMapping(value = "/{month}/{day}/update/{EventId}")
-	public void UpdateEventOnDay(@PathVariable(required = true) String month,@PathVariable(required = true) int day,@PathVariable(required = true) int eventID){
+	public void UpdateEventOnDay(@PathVariable(required = true) String month,@PathVariable(required = true) int day,@PathVariable(required = true) int eventID,@RequestBody Event event){
 		Day tempday = dayService.repository.findDay(day, month);
 		//FIT HERE EVENT SETUP
-		dayService.updateEvent(day, event);
+		dayService.updateEvent(tempday, event);
 		
 		
 	}

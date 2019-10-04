@@ -1,2 +1,6 @@
 
 restful-web-services/src/main/java/com/sept/rest/webservices/restfulwebservices/User/User.java
+*.json
+frontend/.project
+frontend/todo-app/src/index.js
+frontend/todo-app/src/index.js
