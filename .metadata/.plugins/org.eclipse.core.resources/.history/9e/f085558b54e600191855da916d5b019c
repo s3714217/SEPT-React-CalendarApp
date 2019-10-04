@@ -1,0 +1,7 @@
+package mockObjects;
+
+import java.util.function.BooleanSupplier;
+
+public class MockCalendar {
+
+}

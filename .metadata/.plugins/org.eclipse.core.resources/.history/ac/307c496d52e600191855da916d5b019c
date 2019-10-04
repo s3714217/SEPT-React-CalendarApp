@@ -1,0 +1,80 @@
+package frontEndTests;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+
+import mockObjects.MockAccount;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class Login_Authentication_Tests {
+
+//Account Tests
+	
+	@Test
+	void validEmailTest() 
+	{
+		assertTrue(MockAccount.validEmail("valid@email.com"));
+	}
+	
+	@Test
+	void invalidEmailTest()
+	{
+		assertFalse(MockAccount.validEmail("invalidEmailRegex@@@@"));
+	}
+	
+	@Test
+	void fullInputFieldsTest()
+	{
+		//Fill in all fields
+		assertFalse(MockAccount.emptyInputField());
+	}
+
+	@Test
+	void emptyInputFieldsTest()
+	{
+		//Leave some fields empty
+		assertTrue(MockAccount.emptyInputField());
+	}
+	
+	@Test
+	void matchPasswordTest()
+	{
+		//Set both fields the same
+		assertTrue(MockAccount.matchPassword(MockAccount.getPassword(), MockAccount.getConfirmPassword()));
+	}
+	
+	@Test
+	void notMatchPasswordTest()
+	{
+		//Set fields as different
+		assertFalse(MockAccount.matchPassword(MockAccount.getPassword(), MockAccount.getConfirmPassword()));
+	}
+	
+	@Test
+	void validPasswordLengthTest()
+	{
+		//Set password field to length >= 6
+		assertTrue(MockAccount.checkLength(MockAccount.getPassword(), 6));
+	}
+	
+	@Test
+	void invalidPasswordLengthTest()
+	{
+		//Set password field to length < 6
+		assertFalse(MockAccount.checkLength(MockAccount.getPassword(), 6));
+	}
+	
+	@Test
+	void validSeccurityQuestion1LengthTest()
+	{
+		assertTrue(MockAccount.checkLength(MockAccount.getQuestion1Answer(), 5));
+	}
+	
+	@Test
+	void invalidSeccurityQuestion1LengthTest()
+	{
+		assertFalse(MockAccount.checkLength(MockAccount.getQuestion1Answer(), 5));
+	}
+}

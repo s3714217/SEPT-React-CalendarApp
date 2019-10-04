@@ -1,0 +1,15 @@
+package com.sept.rest.webservices.restfulwebservices;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class userTests {
+
+	@Test
+	void test() {
+		assertTrue(true);
+	}
+
+}

@@ -1,0 +1,56 @@
+package frontEndTests;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+
+import mockObjects.MockCalendar;
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class Calendar_Tests {
+//Calendar Tests
+	//Event Tests
+	@Test
+	void fullInputFieldsTest()
+	{
+		//Fill in all fields
+		assertFalse(MockCalendar.emptyInputField());
+	}
+
+	@Test
+	void emptyInputFieldsTest()
+	{
+		//Leave some fields empty
+		assertTrue(MockCalendar.emptyInputField());
+	}
+	
+	@Test
+	void validLocationLengthTest()
+	{
+		//Set location field to length > 5
+		assertTrue(MockCalendar.checkLength(MockCalendar.getLocation(), 5));
+	}
+	
+	@Test
+	void invalidLocationLengthTest()
+	{
+		//Set location field to length =< 5
+		assertFalse(MockCalendar.checkLength(MockCalendar.getLocation(), 5));
+	}
+	
+	@Test
+	void validTitleLengthTest()
+	{
+		//Set location field to length > 3
+		assertTrue(MockCalendar.checkLength(MockCalendar.getLocation(), 3));
+	}
+	
+	@Test
+	void invalidTitleLengthTest()
+	{
+		//Set location field to length =< 3
+		assertFalse(MockCalendar.checkLength(MockCalendar.getLocation(), 3));
+	}
+
+}

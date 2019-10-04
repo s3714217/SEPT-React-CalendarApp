@@ -1,0 +1,14 @@
+package mockObjects;
+
+import java.util.function.BooleanSupplier;
+
+public class MockCalendar {
+
+	MockEvent event;
+	
+	public static MockEvent getMockEvent() {
+		// TODO Auto-generated method stub
+		return event;
+	}
+
+}

@@ -1,0 +1,38 @@
+package com.sept.rest.webservices.restfulwebservices;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+//For User related tests
+//import com.sept.rest.webservices.restfulwebservices.user.User;
+//import com.sept.rest.webservices.restfulwebservices.user.UserService;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class RestfulWebServicesApplicationTests 
+{
+//	User user;
+//	User UserController;
+//	UserService userService;
+	
+	@Test
+	public void test()
+	{
+		assertTrue(true);
+	}
+	
+	//UserService Tests
+	
+//	@Test (expected=NullPointerException.class)
+//	public void nullCreateUserTest()
+//	{
+//		userService.createUser(null);
+//	}
+
+	//
+}

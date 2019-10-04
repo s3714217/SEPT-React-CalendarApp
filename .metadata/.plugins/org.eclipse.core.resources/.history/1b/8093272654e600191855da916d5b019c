@@ -1,0 +1,42 @@
+package frontEndTests;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+
+import mockObjects.MockCalendar;
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class Calendar_Tests {
+//Calendar Tests
+	//Event Tests
+	@Test
+	void fullInputFieldsTest()
+	{
+		//Fill in all fields
+		assertFalse(MockCalendar.emptyInputField());
+	}
+
+	@Test
+	void emptyInputFieldsTest()
+	{
+		//Leave some fields empty
+		assertTrue(MockCalendar.emptyInputField());
+	}
+	
+	@Test
+	void validLocationLengthTest()
+	{
+		//Set password field to length >= 6
+		assertTrue(MockAccount.checkLength(MockAccount.getPassword(), 6));
+	}
+	
+	@Test
+	void invalidLocationLengthTest()
+	{
+		//Set password field to length < 6
+		assertFalse(MockAccount.checkLength(MockAccount.getPassword(), 6));
+	}
+
+}

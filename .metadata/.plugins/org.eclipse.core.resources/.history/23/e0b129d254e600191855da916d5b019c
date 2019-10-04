@@ -1,0 +1,17 @@
+package mockObjects;
+
+import java.util.function.BooleanSupplier;
+
+public class MockEvent {
+
+	public Object getLocation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public BooleanSupplier emptyInputField() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

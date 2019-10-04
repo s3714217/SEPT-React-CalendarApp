@@ -1,0 +1,63 @@
+package frontEndTests;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+
+import mockObjects.MockCalendar;
+import mockObjects.MockEvent;
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class Calendar_Tests {
+//Calendar Tests
+	//Event Tests
+	@Test
+	void fullInputFieldsTest()
+	{
+		//Fill in all fields
+		assertFalse(MockCalendar.getMockEvent().emptyInputField());
+	}
+
+	@Test
+	void emptyInputFieldsTest()
+	{
+		//Leave some fields empty
+		assertTrue(MockCalendar.getMockEvent().emptyInputField());
+	}
+	
+	@Test
+	void validLocationLengthTest()
+	{
+		//Set location field to length > 5
+		assertTrue(MockCalendar.getMockEvent().checkLength(MockEvent.getLocation(), 5);
+	}
+	
+	@Test
+	void invalidLocationLengthTest()
+	{
+		//Set location field to length =< 5
+		assertFalse(MockCalendar.checkLength(MockCalendar.getMockEvent().getLocation(), 5));
+	}
+	
+	@Test
+	void validTitleLengthTest()
+	{
+		//Set location field to length > 3
+		assertTrue(MockCalendar.checkLength(MockCalendar.getMockEvent().getTitle(), 3));
+	}
+	
+	@Test
+	void invalidTitleLengthTest()
+	{
+		//Set location field to length =< 3
+		assertFalse(MockCalendar.checkLength(MockCalendar.getMockEvent().getTitle(), 3));
+	}
+	
+	@Test
+	void correctDateRegexTest()
+	{
+		//Set date inputfield to form yyyy-mm-dd
+		assertTrue(MockCalendar)
+	}
+}

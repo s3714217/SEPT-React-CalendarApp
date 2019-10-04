@@ -1,0 +1,12 @@
+package mockObjects;
+
+import java.util.function.BooleanSupplier;
+
+public class MockCalendar {
+
+	public static BooleanSupplier emptyInputField() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

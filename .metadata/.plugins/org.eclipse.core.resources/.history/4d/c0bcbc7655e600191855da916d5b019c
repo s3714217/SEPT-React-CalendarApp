@@ -1,0 +1,19 @@
+package mockObjects;
+
+import java.util.function.BooleanSupplier;
+
+public class MockCalendar {
+
+	static MockEvent event;
+	
+	public static MockEvent getMockEvent() {
+		// TODO Auto-generated method stub
+		return event;
+	}
+
+	public static BooleanSupplier checkLength(Object location, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

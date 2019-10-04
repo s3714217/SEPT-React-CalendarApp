@@ -1,0 +1,27 @@
+package mockObjects;
+
+import java.util.function.BooleanSupplier;
+
+public class MockEvent {
+
+	public static Object getLocation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public BooleanSupplier emptyInputField() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getTitle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public BooleanSupplier checkLength(Object location, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

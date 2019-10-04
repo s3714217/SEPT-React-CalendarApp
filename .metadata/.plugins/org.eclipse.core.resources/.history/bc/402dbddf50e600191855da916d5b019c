@@ -1,0 +1,23 @@
+package frontEndTests;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+
+import mockObjects.MockAccount;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class Login_Authentication_Tests {
+
+//Account Tests
+	
+	@Test
+	void validEmailTest() 
+	{
+		assertTrue(MockAccount.validEmail("valid@email.com"));
+	}
+	
+	@Test
+
+}

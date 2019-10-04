@@ -1,0 +1,10 @@
+package mockObjects;
+
+public class MockEvent {
+
+	public Object getLocation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
