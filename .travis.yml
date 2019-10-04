@@ -1,22 +1,30 @@
 matrix:
   include:
       - language: node_js
+        
         node_js:
           - "stable"
+        
         cache:
         directories:
           - node_modules
+        
         script:
           - cd frontend/todo-app
           - npm test
+
 
       - language: java
       
         jdk:
           - oraclejdk9
+          
+        install: true
+        
+        script: ./mvnw clean install
   
         script:
-          - cd restful-web-services
+          # - cd restful-web-services
           - javac RestfulWebServicesApplication.java 
 
 
