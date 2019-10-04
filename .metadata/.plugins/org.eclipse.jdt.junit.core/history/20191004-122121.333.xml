@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="RestfulWebServicesApplicationTests" project="restful-web-services" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.sept.rest.webservices.restfulwebservices.RestfulWebServicesApplicationTests" time="0.001" displayname="RestfulWebServicesApplicationTests" uniqueid="[engine:junit-vintage]/[runner:com.sept.rest.webservices.restfulwebservices.RestfulWebServicesApplicationTests]">
-    <testcase name="test" classname="com.sept.rest.webservices.restfulwebservices.RestfulWebServicesApplicationTests" time="0.001" displayname="test" uniqueid="[engine:junit-vintage]/[runner:com.sept.rest.webservices.restfulwebservices.RestfulWebServicesApplicationTests]/[test:test(com.sept.rest.webservices.restfulwebservices.RestfulWebServicesApplicationTests)]"/>
-  </testsuite>
-</testrun>
