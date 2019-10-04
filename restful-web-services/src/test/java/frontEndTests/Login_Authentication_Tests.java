@@ -10,102 +10,103 @@ import mockObjects.MockAccount;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class Login_Authentication_Tests {
 
+	MockAccount account = new MockAccount();
 //Account Tests
 	//Create Account Tests
 	@Test
 	void validEmailTest() 
 	{
-		assertTrue(MockAccount.validEmail("valid@email.com"));
+		assertTrue(account.validEmail("valid@email.com"));
 	}
 	
 	@Test
 	void invalidEmailTest()
 	{
-		assertFalse(MockAccount.validEmail("invalidEmailRegex@@@@"));
+		assertFalse(account.validEmail("invalidEmailRegex@@@@"));
 	}
 	
 	@Test
 	void fullInputFieldsTest()
 	{
 		//Fill in all fields
-		assertFalse(MockAccount.emptyInputField());
+		assertFalse(account.emptyInputField());
 	}
 
 	@Test
 	void emptyInputFieldsTest()
 	{
 		//Leave some fields empty
-		assertTrue(MockAccount.emptyInputField());
+		assertTrue(account.emptyInputField());
 	}
 	
 	@Test
 	void matchPasswordTest()
 	{
 		//Set both fields the same
-		assertTrue(MockAccount.matchPassword(MockAccount.getPassword(), MockAccount.getConfirmPassword()));
+		assertTrue(account.matchPassword(account.getPassword(), account.getConfirmPassword()));
 	}
 	
 	@Test
 	void notMatchPasswordTest()
 	{
 		//Set fields as different
-		assertFalse(MockAccount.matchPassword(MockAccount.getPassword(), MockAccount.getConfirmPassword()));
+		assertFalse(account.matchPassword(account.getPassword(), account.getConfirmPassword()));
 	}
 	
 	@Test
 	void validPasswordLengthTest()
 	{
 		//Set password field to length >= 6
-		assertTrue(MockAccount.checkLength(MockAccount.getPassword(), 6));
+		assertTrue(account.checkLength(account.getPassword(), 6));
 	}
 	
 	@Test
 	void invalidPasswordLengthTest()
 	{
 		//Set password field to length < 6
-		assertFalse(MockAccount.checkLength(MockAccount.getPassword(), 6));
+		assertFalse(account.checkLength(account.getPassword(), 6));
 	}
 	
 	@Test
 	void validSeccurityQuestion1LengthTest()
 	{
 		//Set question 1 answer field to length >= 5
-		assertTrue(MockAccount.checkLength(MockAccount.getQuestion1Answer(), 5));
+		assertTrue(account.checkLength(account.getQuestion1Answer(), 5));
 	}
 	
 	@Test
 	void invalidSeccurityQuestion1LengthTest()
 	{
 		//Set question 1 answer field to length < 5
-		assertFalse(MockAccount.checkLength(MockAccount.getQuestion1Answer(), 5));
+		assertFalse(account.checkLength(account.getQuestion1Answer(), 5));
 	}
 	
 	@Test
 	void validSeccurityQuestion2LengthTest()
 	{
 		//Set question 2 answer field to length >= 5
-		assertTrue(MockAccount.checkLength(MockAccount.getQuestion2Answer(), 5));
+		assertTrue(account.checkLength(account.getQuestion2Answer(), 5));
 	}
 	
 	@Test
 	void invalidSeccurityQuestion2LengthTest()
 	{
 		//Set question 2 answer field to length < 5
-		assertFalse(MockAccount.checkLength(MockAccount.getQuestion2Answer(), 5));
+		assertFalse(account.checkLength(account.getQuestion2Answer(), 5));
 	}
 	
 	@Test
 	void validSeccurityQuestion3LengthTest()
 	{
 		//Set question 3 answer field to length >= 5
-		assertTrue(MockAccount.checkLength(MockAccount.getQuestion3Answer(), 5));
+		assertTrue(account.checkLength(account.getQuestion3Answer(), 5));
 	}
 	
 	@Test
 	void invalidSeccurityQuestion3LengthTest()
 	{
 		//Set question 3 answer field to length < 5
-		assertFalse(MockAccount.checkLength(MockAccount.getQuestion3Answer(), 5));
+		assertFalse(account.checkLength(account.getQuestion3Answer(), 5));
 	}
 	
 //Account Tests
@@ -113,52 +114,52 @@ class Login_Authentication_Tests {
 	@Test
 	void correctUserNameTest()
 	{	//input is the same as user name
-		assertTrue(MockAccount.correctUserName(MockAccount.getInput(), MockAccount.getUsername()));
+		assertTrue(account.correctUserName(account.getInput(), account.getUsername()));
 	}
 	
 	@Test
 	void incorrectUserNameTest()
 	{	//input is not the same as user name
-		assertFalse(MockAccount.correctUserName(MockAccount.getInput(), MockAccount.getUsername()));
+		assertFalse(account.correctUserName(account.getInput(), account.getUsername()));
 	}
 	
 	@Test
 	void correctPasswordTest()
 	{	//input is the same as password
-		assertTrue(MockAccount.correctUserName(MockAccount.getInput(), MockAccount.getPassword()));
+		assertTrue(account.correctUserName(account.getInput(), account.getPassword()));
 	}
 	
 	@Test
 	void incorrectPasswordTest()
 	{	//input is not the same as password
-		assertFalse(MockAccount.correctUserName(MockAccount.getInput(), MockAccount.getPassword()));
+		assertFalse(account.correctUserName(account.getInput(), account.getPassword()));
 	}
 	
 	@Test
 	void validRecoveredPasswordLengthTest()
 	{
 		//Set password field to length >= 6
-		assertTrue(MockAccount.checkLength(MockAccount.getRecoveredPassword(), 6));
+		assertTrue(account.checkLength(account.getRecoveredPassword(), 6));
 	}
 	
 	@Test
 	void invalidRecoveredPasswordLengthTest()
 	{
 		//Set password field to length < 6
-		assertFalse(MockAccount.checkLength(MockAccount.getRecoveredPassword(), 6));
+		assertFalse(account.checkLength(account.getRecoveredPassword(), 6));
 	}
 	
 	@Test
 	void matchRecoveredPasswordTest()
 	{
 		//Set both fields the same
-		assertTrue(MockAccount.matchPassword(MockAccount.getRecoveredPassword(), MockAccount.getConfirmRecoveredPassword()));
+		assertTrue(account.matchPassword(account.getRecoveredPassword(), account.getConfirmRecoveredPassword()));
 	}
 	
 	@Test
 	void notMatchRecoveredPasswordTest()
 	{
 		//Set fields as different
-		assertFalse(MockAccount.matchPassword(MockAccount.getRecoveredPassword(), MockAccount.getConfirmRecoveredPassword()));
+		assertFalse(account.matchPassword(account.getRecoveredPassword(), account.getConfirmRecoveredPassword()));
 	}
 }

@@ -5,7 +5,7 @@ public class MockCalendar {
 
 	static MockEvent event;
 	
-	public static MockEvent getMockEvent() {
+	public MockEvent getMockEvent() {
 		// TODO Auto-generated method stub
 		return event;
 	}
