@@ -16,7 +16,7 @@ matrix:
 
       - language: java
         before_install: cd restful-web-services
-        script: mvn test
+        script: mvn test -f pom.xml
         jdk:
           - oraclejdk9
 
