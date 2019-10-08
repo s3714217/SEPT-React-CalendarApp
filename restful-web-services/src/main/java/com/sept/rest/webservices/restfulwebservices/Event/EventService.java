@@ -17,7 +17,7 @@ public class EventService {
         repository.addEvent(event);
         repository.save(event);
     }
-    
+
     public void update(int eventID,Event event) {
     	
     	 repository.updateEvent(eventID, event);
