@@ -16,19 +16,6 @@ class AuthenticationService {
             password
         })
     }
-
-    RegisterAuthenticationService(user){
-        return axios.post(`${API_URL}/user`, user)
-    }
-    
-    DeleteUserAuthenticationService(username){
-        return axios.delete(`${API_URL}/user`, username)
-    }
-
-
-
-
-
     createBasicAuthToken(username, password) {
         return 'Basic ' + window.btoa(username + ":" + password)
     }

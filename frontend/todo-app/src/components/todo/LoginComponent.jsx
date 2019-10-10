@@ -104,8 +104,7 @@ class LoginComponent extends Component {
                     <button className="btn btn-success" onClick={this.loginClicked} >Login</button>
                     <br></br>
                     <button className="btn btn-register" onClick={this.registrationClicked}>Registration</button>
-                    <br></br>
-                    <button className="btn btn-register" onClick={this.forgotPasswordClicked}>Forgot Password</button>
+                    
 
                 </div>
             </div>
