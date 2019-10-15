@@ -14,35 +14,44 @@ public class EventService {
     EventJpaRepository repository;
 
     public void add(Event event) {
-        repository.addEvent(event);
-        repository.save(event);
+        repository.saveAndFlush(event);
     }
 
-    public void update(int eventID,Event event) {
+    public void update(long eventID,Event event) {
+    	Optional<Event> event1 = repository.findById(eventID);
+    	if(event1.isPresent()) {
+    		repository.save(event);
+    	}
     	
-    	 repository.updateEvent(eventID, event);
-    	
-    }
+     }
 
-    public void delete(int id) {
-        repository.deleteById(id);
+    public void delete(long id,Event event) {
+       Optional<Event> event1 = repository.findById(id);
+       if(event1.isPresent()) {
+    	   repository.delete(event);
+       }
     }
 
     public List<Event> getEvents() {
-        return (List<Event>) repository.findAll();
+       return repository.findAll();
     }
 
-    public Event getEventById(int id) {
-        Event optionalEvent = repository.findEvent(id);
-        return optionalEvent;
+    public Optional<Event> getEventById(long id) {
+      Optional<Event> event1 = repository.findById(id);
+      if(event1.isPresent()) {
+    	  return event1;
+      }
+      else {
+    	  return null;
+      }
+       
 
     }
 
-    public Event getEventByDay(Day day) {
-        Event optionalEvent = repository.findEvent(day);
-        return optionalEvent;
+   // public Event getEventByDay(Day day) {
+       
 
-    }
+   // }
     
     
 
