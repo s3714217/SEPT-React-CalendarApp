@@ -43,7 +43,15 @@ public class EventController {
 	@SuppressWarnings("null")
 	@RequestMapping(value = "/{userName}/event/")
 	public List<Event> DisplayEvents(@PathVariable(required = true) String userName){
-		return service.getEvents();
+		List<Event> events = service.getEvents();
+		List<Event> eventsForUser = null;
+		for(Event event : events) {
+			if(event.getUser().getUserName().equalsIgnoreCase(userName)){
+				eventsForUser.add(event);
+			}
+		}
+		
+		return eventsForUser;
 		
 		
 	
