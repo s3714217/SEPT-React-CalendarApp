@@ -1,6 +1,7 @@
 package com.sept.rest.webservices.restfulwebservices.Event;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,11 +17,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "https://localhost:4200")
 public class EventController {
     @Autowired
     EventService service;
 
-    @PostMapping(value = "/{userName}/event/")
+    @PostMapping(value ="/event/")
 	public void createEvent(@RequestBody Event event){
 		
 		service.add(event);
@@ -46,7 +48,7 @@ public class EventController {
 		List<Event> events = service.getEvents();
 		List<Event> eventsForUser = null;
 		for(Event event : events) {
-			if(event.getUser().getUserName().equalsIgnoreCase(userName)){
+			if(event.getUser().equalsIgnoreCase(userName)){
 				eventsForUser.add(event);
 			}
 		}

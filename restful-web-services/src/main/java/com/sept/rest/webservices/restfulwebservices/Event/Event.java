@@ -25,20 +25,19 @@ public class Event {
     @Column(nullable = false)
     String Location;
 
-    @ManyToOne
-    Day day;
+    LocalDate day;
 
-    @ManyToOne
-    User user;
+   String ReferenceUsername;
 
-    public Event(String eventTitle, String description, String time, String Location, Day day, User user) {
+    public Event(String eventTitle, String description, String time, String Location, LocalDate day, String userName) {
 
         this.eventTitle = eventTitle;
         this.description = description;
         this.time = time;
         this.Location = Location;
         this.day = day;
-        this.user = user;
+        this.ReferenceUsername = userName;
+        
 
     }
 
@@ -82,20 +81,20 @@ public class Event {
         this.Location = Location;
     }
 
-    public Day getEventDay() {
+    public LocalDate getEventDay() {
         return this.day;
     }
 
-    public void setEventDay(Day day) {
+    public void setEventDay(LocalDate day) {
         this.day = day;
     }
 
-    public User getUser() {
-        return user;
+    public String getUser() {
+        return ReferenceUsername;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(String User) {
+       this.ReferenceUsername = User;
     }
 
     public String toString() {

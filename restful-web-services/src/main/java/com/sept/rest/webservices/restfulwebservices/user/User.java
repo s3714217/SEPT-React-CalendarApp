@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,8 +25,8 @@ public class User {
     private String favColour;
     private String fatherMiddle;
     private String motherMiddle;
-    @OneToMany
-    Event event;
+    
+  
 	
 
     public User(String userName, String userPassword) {
