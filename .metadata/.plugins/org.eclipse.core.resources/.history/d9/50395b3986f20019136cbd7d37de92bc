@@ -1,0 +1,17 @@
+package backEndTests;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import com.sept.rest.webservices.restfulwebservices.Event.Event;
+
+class EventTests {
+	
+	Event mockEvent = new Event("title", "desc", "time", "location", "day", "username");
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,21 @@
+package backEndTests;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import com.sept.rest.webservices.restfulwebservices.user.User;
+import com.sept.rest.webservices.restfulwebservices.user.UserService;
+
+class UserTests 
+{
+	User MockUser = new User("Username", "Password");
+	UserService us = new UserService();
+	@Test
+	void test() 
+	{
+		us.createUser(MockUser);
+		
+	}
+
+}
