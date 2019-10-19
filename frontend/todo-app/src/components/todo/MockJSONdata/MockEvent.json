@@ -1,31 +1,30 @@
 [
-    {
-        "id": 1,
-        "eventTitle": "CSIT Mentor",
-        "description": "Attend the mentor session",
-        "location": "RMIT UNI",
-        "eventDate": "2019-09-30"
-    },  
-    {
-        "id": 2,
-        "eventTitle": "SCRUM Meeting",
-        "description": "Attend the meeting",
-        "location": "RMIT UNI",
-        "eventDate": "2019-10-2"
-    },
-    {
-        "id": 3,
-        "eventTitle": "Mid sem test ",
-        "description": "Attend the lecture to do the test",
-        "location": "RMIT UNI",
-        "eventDate": "2019-10-6"
-    },
-    {
-        "id": 4,
-        "eventTitle": "2nd SCRUM Meeting",
-        "description": "Attend the 2nd meeting",
-        "location": "RMIT UNI",
-        "eventDate": "2019-10-5"
-    }
-
+  {
+    "id": 1,
+    "eventTitle": "CSIT Mentor",
+    "description": "Attend the mentor session",
+    "location": "RMIT UNI",
+    "eventDate": "2019-09-30"
+  },
+  {
+    "id": 2,
+    "eventTitle": "SCRUM Meeting",
+    "description": "Attend the meeting",
+    "location": "RMIT UNI",
+    "eventDate": "2019-10-2"
+  },
+  {
+    "id": 3,
+    "eventTitle": "Mid sem test ",
+    "description": "Attend the lecture to do the test",
+    "location": "RMIT UNI",
+    "eventDate": "2019-10-6"
+  },
+  {
+    "id": 4,
+    "eventTitle": "2nd SCRUM Meeting",
+    "description": "Attend the 2nd meeting",
+    "location": "RMIT UNI",
+    "eventDate": "2019-10-5"
+  }
 ]
