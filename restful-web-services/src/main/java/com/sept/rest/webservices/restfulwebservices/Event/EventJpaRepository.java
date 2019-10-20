@@ -13,18 +13,5 @@ import com.sept.rest.webservices.restfulwebservices.user.User;
 public interface EventJpaRepository extends JpaRepository<Event, Long> {
 	
 	
-	void deleteById(int id);
-
-	Event findEvent(Day day);
-
-	Optional<Event> findEvent(User user,Day day);
-
-	void addEvent(Event event);
-
-	void updateEvent(int eventID, Event event);
-
-	Event findEvent(int id);
-
-	
 
 }
