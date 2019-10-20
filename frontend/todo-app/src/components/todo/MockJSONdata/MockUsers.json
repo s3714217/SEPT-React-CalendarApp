@@ -1,0 +1,37 @@
+[
+  {
+    "userName": "Mohammed",
+    "password": "123456",
+    "emailAddress": "m.4848.m@hotmail.com",
+    "favoriteColor": "red",
+    "fatherName": "Hulail",
+    "motherMiddleName": "Faraj"
+  },
+  {
+    "userName": "Khalid",
+    "password": "123",
+    "emailAddress": "Attend the mentor session",
+    "location": "RMIT UNI",
+    "favoriteColor": "2019-09-30",
+    "fatherName": "",
+    "motherMiddleName": ""
+  },
+  {
+    "userName": "Salman",
+    "password": "CSIT Mentor",
+    "emailAddress": "Attend the mentor session",
+    "location": "RMIT UNI",
+    "favoriteColor": "2019-09-30",
+    "fatherName": "",
+    "motherMiddleName": ""
+  },
+  {
+    "userName": "Fahad",
+    "password": "CSIT Mentor",
+    "emailAddress": "Attend the mentor session",
+    "location": "RMIT UNI",
+    "favoriteColor": "2019-09-30",
+    "fatherName": "",
+    "motherMiddleName": ""
+  }
+]

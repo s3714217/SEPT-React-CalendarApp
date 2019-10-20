@@ -1,0 +1,24 @@
+matrix:
+  include:
+      - language: node_js
+        
+        node_js:
+          - "stable"
+        
+        cache:
+        directories:
+          - node_modules
+        
+        script:
+          - cd frontend/todo-app
+          - npm test
+
+
+      - language: java
+        before_install: cd restful-web-services
+        script: mvn test -f pom.xml
+        jdk:
+          - oraclejdk9
+
+
+          

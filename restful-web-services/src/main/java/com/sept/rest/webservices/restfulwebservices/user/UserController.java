@@ -7,12 +7,14 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,81 +24,60 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 //Controller
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
 //
 public class UserController {
-	
+
 	@Autowired
-	  private UserRepository userRepository;
+	UserService service;;
 
-	  @GetMapping("/users")
-	  public List<User> getAllUsers() 
+	  @GetMapping(path = "/login")
+	  public List<User> getAllUsers()
 	  {
-	    return userRepository.findAll();
-	   
-	  }
-	  
-	  @Bean
-	  public PasswordEncoder passwordEncoder() {
-	      return new BCryptPasswordEncoder();
+	    return service.getAllUsers();
+
 	  }
 
-	  
-	  @GetMapping("/users/{ID}")
-	  public ResponseEntity<User> getUsersByID(@PathVariable(value = "id") Long userID)
+//	  @Bean
+//	  public PasswordEncoder passwordEncoder() {
+//	      return new BCryptPasswordEncoder();
+//	  }
+
+
+	  @GetMapping(path = "/users/{username}")
+	  public ResponseEntity<User> getUsersByUserName(@PathVariable(value = "username") String userName)
 	      throws Exception {
-	    
-		  User user = userRepository.findByUserID(userID).orElseThrow(() -> new Exception("User not found on : " + userID));
-		  return  new ResponseEntity<User>(user, HttpStatus.OK);
+
+		  return service.getUsersByuserName(userName);
 	  }
 
-	  @PostMapping("/users")
+	  @PostMapping(path = "/user")
 	  public User createUser(@Valid @RequestBody User user) {
-		 
-		  if (userRepository.findByUserID(user.getUserID()).isPresent() == false)
-		  {
-			  user = new User(user.getUserID(), user.getUserName(),this.passwordEncoder().encode(user.getUserPassword()));
-			  return userRepository.save(user);
-		  }
-		  else
-		  {
-			  return null;
-		  }
+		  User user1 = new User(user.getUserName(),user.getUserPassword());
+
+		  service.createUser(user1);
+		  return user1;
 		  
 	  }
 
-	@PutMapping("/users/{ID}")
-	  public ResponseEntity<User> updateUser(@PathVariable(value = "ID") Long userID, @Valid @RequestBody User userDetails)
-	      throws Exception {
-		
-	    User user = userRepository.findByUserID(userID).orElseThrow(() -> new Exception("User not found on : " + userID));
-	    userRepository.delete(user);
-	    user.setFirstName(userDetails.getFirstName());
-	    user.setLastName(userDetails.getLastName());
-	    user.setEmail(userDetails.getEmail());
-	    userRepository.save(user);
-	    return  new ResponseEntity<User>(user, HttpStatus.OK);
-	  
-	  }
+//	@PutMapping("/users/{username}")
+//	  public ResponseEntity<User> updateUser(@PathVariable(value = "username") String userName, @Valid @RequestBody User userDetails)
+//	      throws Exception {
+//			User user = userfindByUserName(userName);
+//
+//	    return  ResponseEntity<User,>;
+//
+//	  }
 
-	  @DeleteMapping("/user/{ID}")
-	  public Map<String, Boolean> deleteUser(@PathVariable(value = "ID") Long userID) throws Exception {
-	    User user =
-	        userRepository
-	            .findById(userID)
-	            .orElseThrow(() -> new Exception("User not found on : " + userID));
-	    userRepository.delete(user);
-	    Map<String, Boolean> response = new HashMap<>();
-	    response.put("deleted", Boolean.TRUE);
-	    return response;
-	  }
-	  
-	  
-	  
-	  
-	  
-	  
+//	  @DeleteMapping("/user/{ID}")
+//	  public Map<String, Boolean> deleteUser(@PathVariable(value = "ID") String userName) throws Exception {
+//
+//	    service.delete(user);
+//
+//	  }
+
 
 	}
